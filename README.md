@@ -1,10 +1,43 @@
 # Strategy-Games
 
-Tout le monde doit créer sa branch avec son nom: Par exemple pour le travail de Guillaume je crée la branch Guillaume.
+Strategy games in Augmented Reality.
 
-Regle de push:
+## Getting Started
 
-- On travailles tous sur SA branch
-- Quand une fonctionalité a été testé par vous sur votre branch faites un pull request sur la branch Test.
-- Une autre personne doit valider et merger vers la branch Test.
-- Quand les tests ont été fait, pusher avec le numero de version en pull request toujours sur la branch master
+### Prerequisites
+
+* Windows : nothing
+* Linux, Mac : Mono
+
+### Installing
+
+No installation method is currently available
+
+## Running the tests
+
+## Deployment
+
+## Built With
+
+* [Unity](https://wwww.unity3d.com) - Game Engine
+
+## Contribution
+
+Everyone has to create his branch with his name: For example for the work of ..., I create the branch ....
+
+Push Rule:
+
+- We all worked on his branch
+- When a feature has been tested by you on your branch make a pull request on the branch test.
+- Another person must validate and merge to the branch test.
+- When the tests were done, pusher with the version number in pull request always on the branch master
+
+## Versioning
+
+## Authors
+    Olivier Laffon - iLLo - Initial work
+    Aymeric Gand - Inferno47 - Initial work 
+
+## License
+
+## Acknowledgments
