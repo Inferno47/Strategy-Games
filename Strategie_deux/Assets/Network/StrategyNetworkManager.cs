@@ -28,7 +28,7 @@ public class StrategyNetworkManager : MonoBehaviour {
     {
         if (isServer)
         {
-            server = new StrategyServerManager();
+            server = gameObject.AddComponent<StrategyServerManager>();
             server.connect();
         }
         else

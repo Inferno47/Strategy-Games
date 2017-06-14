@@ -37,6 +37,7 @@ public class StrategyServerManager : MonoBehaviour {
     void OnClientConnected(NetworkMessage netMsg)
     {
         Debug.Log("Client connected");
+        Debug.Log("...");
     }
     void OnPlayerDisconnected(NetworkPlayer player)
     {

@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        networkManager = new StrategyNetworkManager();
+        networkManager = gameObject.AddComponent<StrategyNetworkManager>();
         playerCtrls = new List<PlayerController>();
 	}
     public void beginExecution()
