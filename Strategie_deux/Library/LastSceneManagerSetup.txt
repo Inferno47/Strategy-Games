@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/StrategyGame.unity
+- path: Assets/Scene/OptionMenu.unity
   isLoaded: 1
   isActive: 1
