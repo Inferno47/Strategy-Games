@@ -3,43 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StrategyNetworkManager : MonoBehaviour {
-    StrategyServerManager server = null;
-    StrategyClientManager client = null;
-    bool isServer = false;
-        
-    public bool IsServer
-    {
-        get
-        {
-            return isServer;
-        }
+	StrategyServerManager server = null;
+	StrategyClientManager client = null;
+	bool isServer = false;
+		
+	public bool IsServer
+	{
+		get
+		{
+			return isServer;
+		}
 
-        set
-        {
-            isServer = value;
-        }
-    }
-
-    // Use this for initialization
-    void Start () {
+		set
+		{
+			isServer = value;
+		}
 	}
 
-    public void setUpNetworkManager()
-    {
-        if (isServer)
-        {
-            server = gameObject.AddComponent<StrategyServerManager>();
-            server.connect();
-        }
-        else
-        {
-            Debug.Log("Starting up as a client");
-            client = new StrategyClientManager();
-            client.Ip = "127.0.0.1";
-            client.Port = 4444;
-            client.connection();
-        }
-    }	
+	// Use this for initialization
+	void Start () {
+	}
+
+	public void setUpNetworkManager()
+	{
+		if (isServer)
+		{
+			server = gameObject.AddComponent<StrategyServerManager>();
+			server.connect();
+		}
+		else
+		{
+			Debug.Log("Starting up as a client");
+			client = new StrategyClientManager();
+			client.Ip = "127.0.0.1";
+			client.Port = 4444;
+			client.connection();
+		}
+	}	
 	// Update is called once per frame
 	void Update () {
 		

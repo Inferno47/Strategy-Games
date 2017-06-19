@@ -9,26 +9,26 @@ public class MainMenuController : MonoBehaviour {
 		
 	}
 
-    public void Solo () {
+	public void Solo () {
 
-    }
+	}
 
-    public void MultiJoueur ()
-    {
+	public void MultiJoueur ()
+	{
 
-    }
+	}
 
-    public void Option ()
-    {
+	public void Option ()
+	{
 
-    }
+	}
 
-    public void Quiter()
-    {
-        Application.Quit();
-    }
-    // Update is called once per frame
-    void Update () {
+	public void Quiter()
+	{
+		Application.Quit();
+	}
+	// Update is called once per frame
+	void Update () {
 		
 	}
 }
