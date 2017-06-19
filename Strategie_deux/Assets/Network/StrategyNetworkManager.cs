@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StrategyNetworkManager : MonoBehaviour {
 	StrategyServerManager server = null;
@@ -22,6 +23,7 @@ public class StrategyNetworkManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		SceneManager.LoadScene("MultiPlayerMenu", LoadSceneMode.Additive);
 	}
 
 	public void setUpNetworkManager()

@@ -6,8 +6,7 @@ public class GameController : MonoBehaviour {
 	StrategyNetworkManager networkManager;
 	List<PlayerController> playerCtrls;
 	public bool isServer = true;
-	//DontDestroyOnLoad
-	//
+
 	public StrategyNetworkManager NetworkManager
 	{
 		get

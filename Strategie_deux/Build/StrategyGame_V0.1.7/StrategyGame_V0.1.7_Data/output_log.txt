@@ -2,10 +2,10 @@ Mono path[0] = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.7/S
 Mono path[1] = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.7/StrategyGame_V0.1.7_Data/Mono'
 Mono config path = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.7/StrategyGame_V0.1.7_Data/Mono/etc'
 PlayerConnection initialized from H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.7/StrategyGame_V0.1.7_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55228
-Multi-casting "[IP] 192.168.56.1 [Port] 55228 [Flags] 2 [Guid] 1667301933 [EditorId] 2871682992 [Version] 1048832 [Id] WindowsPlayer(Inferno47-PC) [Debug] 0" to [225.0.0.222:54997]...
-Started listening to [0.0.0.0:55228]
-PlayerConnection already initialized - listening to [0.0.0.0:55228]
+PlayerConnection initialized network socket : 0.0.0.0 55269
+Multi-casting "[IP] 192.168.56.1 [Port] 55269 [Flags] 2 [Guid] 1701928889 [EditorId] 2871682992 [Version] 1048832 [Id] WindowsPlayer(Inferno47-PC) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55269]
+PlayerConnection already initialized - listening to [0.0.0.0:55269]
 Player data archive not found at `H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.7/StrategyGame_V0.1.7_Data/data.unity3d`, using local filesystemInitialize engine version: 5.6.1f1 (2860b30f0b54)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -25,16 +25,16 @@ Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.
 Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.7\StrategyGame_V0.1.7_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.7\StrategyGame_V0.1.7_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.7\StrategyGame_V0.1.7_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.022 seconds
+- Completed reload, in  0.018 seconds
 Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.7\StrategyGame_V0.1.7_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.7\StrategyGame_V0.1.7_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 144Hz; virtual: 3840x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.006356 ms
+UnloadTime: 0.968809 ms
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 3bac -> priority: 1 
-  Thread -> id: 39b8 -> priority: 1 
-  Thread -> id: 410c -> priority: 1 
-  Thread -> id: 4554 -> priority: 1 
+  Thread -> id: 41e8 -> priority: 1 
+  Thread -> id: 3240 -> priority: 1 
+  Thread -> id: 3710 -> priority: 1 
+  Thread -> id: 485c -> priority: 1 
