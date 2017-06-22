@@ -14,17 +14,17 @@ public class OptionMenuController : MonoBehaviour {
 	}
 
 	public void Save () {
+        //Save Config
+    }
 
-	}
-
-	public void Annuler () {
-		SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    public void Annuler () {
+		SceneManager.LoadScene("MainMenu");
 	}
 
 	public void Valider()
 	{
-		//Save Config
-		SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        Save();
+		SceneManager.LoadScene("MainMenu");
 	}
 	// Update is called once per frame
 	void Update () {

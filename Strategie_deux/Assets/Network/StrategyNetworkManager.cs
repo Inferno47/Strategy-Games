@@ -23,11 +23,9 @@ public class StrategyNetworkManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		SceneManager.LoadScene("MultiPlayerMenu", LoadSceneMode.Additive);
 	}
 
-	public void setUpNetworkManager()
-	{
+	public void setUpNetworkManager() {
 		if (isServer)
 		{
 			server = gameObject.AddComponent<StrategyServerManager>();

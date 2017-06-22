@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 	StrategyNetworkManager networkManager;
 	List<PlayerController> playerCtrls;
-	public bool isServer = true;
 
 	public StrategyNetworkManager NetworkManager
 	{
@@ -32,10 +31,6 @@ public class GameController : MonoBehaviour {
 			playerCtrls = value;
 		}
 	}
-	public void setIsServer(bool isServer)
-	{
-		this.isServer = isServer;
-	}
 
 	// Use this for initialization
 	void Start () {
@@ -44,7 +39,6 @@ public class GameController : MonoBehaviour {
 	}
 	public void beginExecution()
 	{
-		networkManager.IsServer = isServer;
 		networkManager.setUpNetworkManager();
 	}
 

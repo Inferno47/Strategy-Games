@@ -1,0 +1,48 @@
+Mono path[0] = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.9/StrategyGame_V0.1.9_Data/Managed'
+Mono path[1] = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.9/StrategyGame_V0.1.9_Data/Mono'
+Mono config path = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.9/StrategyGame_V0.1.9_Data/Mono/etc'
+PlayerConnection initialized from H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.9/StrategyGame_V0.1.9_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55364
+Multi-casting "[IP] 192.168.1.85 [Port] 55364 [Flags] 2 [Guid] 3694807968 [EditorId] 3020105847 [Version] 1048832 [Id] WindowsPlayer(Inferno47-PC) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55364]
+PlayerConnection already initialized - listening to [0.0.0.0:55364]
+Player data archive not found at `H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.9/StrategyGame_V0.1.9_Data/data.unity3d`, using local filesystemInitialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon R9 200 Series (ID=0x67b0)
+    Vendor:   ATI
+    VRAM:     3072 MB
+    Driver:   16.300.2311.0
+Begin MonoManager ReloadAssembly
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.020 seconds
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9\StrategyGame_V0.1.9_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.980179 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 5928 -> priority: 1 
+  Thread -> id: 5330 -> priority: 1 
+  Thread -> id: 5f6c -> priority: 1 
+  Thread -> id: 5b3c -> priority: 1 
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.351643 ms
+System memory in use before: 16.8 MB.
+System memory in use after: 16.8 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 290.
+Total: 0.186876 ms (FindLiveObjects: 0.016213 ms CreateObjectMapping: 0.010808 ms MarkObjects: 0.145917 ms  DeleteObjects: 0.013084 ms)
+

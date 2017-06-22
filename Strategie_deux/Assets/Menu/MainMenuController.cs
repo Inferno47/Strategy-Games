@@ -5,22 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour {
 
-	GameController Game = null;
-
 	// Use this for initialization
 	void Start () {
-		DontDestroyOnLoad(this);
 	}
 
 	public void Solo () {
-		Game = gameObject.AddComponent<GameController>();
-
-	}
+        SceneManager.LoadScene("StrategyGame", LoadSceneMode.Single);
+    }
 
 	public void MultiJoueur ()
 	{
-		Game = gameObject.AddComponent<GameController>();
-	}
+        SceneManager.LoadScene("MultiplayerMenu", LoadSceneMode.Single);
+
+    }
 
 	public void Option ()
 	{
