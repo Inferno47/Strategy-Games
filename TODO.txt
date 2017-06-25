@@ -1,0 +1,2 @@
+-Finir Le MenuOption
+-Configuré l'instanciation de la scene StrategyGame

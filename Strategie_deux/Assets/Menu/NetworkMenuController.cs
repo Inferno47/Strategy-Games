@@ -6,33 +6,59 @@ using UnityEngine.SceneManagement;
 
 public class NetworkMenuController : MonoBehaviour {
 
-    private int Port = 4444;
-    private bool IsServer = true;
-    private string Address = "127.0.0.1";
+	private ANetworkManager Manager = null;
+
+	private int Port = 4444;
+	private bool isServer = true;
+	private string Address = "127.0.0.1";
+
+	public bool IsServer
+	{
+		get
+		{
+			return isServer;
+		}
+
+		set
+		{
+			isServer = value;
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
-        DontDestroyOnLoad(this);
+		DontDestroyOnLoad(this);
 	}
 
-    public void SetPort (InputField port) {
-        this.Port = int.Parse(port.text);
-    }
+	// Update is called once per frame
+	void Update() {
+	}
 
-    public void SetIp(InputField address) {
-        this.Address = address.text;
-    }
+	public void SetPort (InputField port) {
+		Port = int.Parse(port.text);
+	}
 
-    public void SetIsServer(bool isServer) {
-		this.IsServer = isServer;
+	public void SetIp(InputField address) {
+		Address = address.text;
 	}
 
 	public void Valider() {
-        SceneManager.LoadScene("StrategyGame", LoadSceneMode.Single);
-    }
+		Debug.Log("Starting up !");
+		SetUpNetworkManager();
+		SceneManager.LoadScene("StrategyGame", LoadSceneMode.Single);
+	}
 
-	// Update is called once per frame
-	void Update () {
-		
+	public void SetUpNetworkManager() {
+		if (isServer)
+			Manager = gameObject.AddComponent<StrategyServerManager>();
+		else
+			Manager = gameObject.AddComponent<StrategyClientManager>();
+		Manager.Address = Address;
+		Manager.Port = Port;
+		Manager.Connect();
+	}
+
+	public void Disconect() {
+		Manager.Disconnect();
 	}
 }

@@ -9,26 +9,24 @@ public class MainMenuController : MonoBehaviour {
 	void Start () {
 	}
 
+	// Update is called once per frame
+	void Update() {
+	}
+
 	public void Solo () {
-        SceneManager.LoadScene("StrategyGame", LoadSceneMode.Single);
-    }
+		SceneManager.LoadScene("StrategyGame", LoadSceneMode.Single);
+	}
 
-	public void MultiJoueur ()
-	{
-        SceneManager.LoadScene("MultiplayerMenu", LoadSceneMode.Single);
+	public void MultiJoueur () {
+		SceneManager.LoadScene("MultiplayerMenu", LoadSceneMode.Single);
 
-    }
+	}
 
-	public void Option ()
-	{
+	public void Option () {
 		SceneManager.LoadScene("OptionMenu", LoadSceneMode.Single);
 	}
 
-	public void Quiter()
-	{
+	public void Quiter() {
 		Application.Quit();
-	}
-	// Update is called once per frame
-	void Update () {
 	}
 }

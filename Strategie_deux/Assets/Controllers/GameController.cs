@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
-	StrategyNetworkManager networkManager;
-	List<PlayerController> playerCtrls;
 
-	public StrategyNetworkManager NetworkManager
+	private NetworkMenuController networkManager;
+	private List<PlayerController> playerCtrls;
+
+	public NetworkMenuController NetworkManager
 	{
 		get
 		{
@@ -34,16 +35,15 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		networkManager = gameObject.AddComponent<StrategyNetworkManager>();
+		networkManager = GameObject.Find("MultiplayerObject").GetComponent<NetworkMenuController>();
 		playerCtrls = new List<PlayerController>();
-	}
-	public void beginExecution()
-	{
-		networkManager.setUpNetworkManager();
 	}
 
 	// Update is called once per frame
-	void Update () {
-		
+	void Update() {
+	}
+
+	public void beginExecution() {
+		networkManager.Disconect();
 	}
 }

@@ -2,50 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.Networking.NetworkSystem;
 
-public class StrategyServerManager : MonoBehaviour {
-	int port = 4444;
-	
-	public int Port
-	{
-		get
-		{
-			return port;
-		}
-
-		set
-		{
-			port = value;
-		}
-	}
+public class StrategyServerManager : ANetworkManager {
 
 	// Use this for initialization
 	void Start () {
-		
 	}
-	public void connect()
-	{
+
+	// Update is called once per frame
+	void Update() {
+	}
+
+	override public void Connect() {
 		NetworkServer.Listen(Port);
 		NetworkServer.RegisterHandler(MsgType.Connect, OnClientConnected);
-		Debug.Log("Server started");
+		NetworkServer.RegisterHandler(MsgType.Disconnect, OnClientDisconnected);
+		Debug.Log("Server Started !");
 	}
-	public void disconnect()
-	{
-		NetworkServer.DisconnectAll();
+
+	override public void Disconnect() {
+		NetworkServer.Shutdown();
+		Debug.Log("Server Shutdown !");
 	}
-	void OnClientConnected(NetworkMessage netMsg)
-	{
-		Debug.Log("Client connected");
-		Debug.Log("...");
+
+	private void OnClientConnected(NetworkMessage netMsg) {
+		Debug.Log("Client Connected !");
 	}
-	void OnPlayerDisconnected(NetworkPlayer player)
-	{
+
+	private void OnClientDisconnected(NetworkMessage netMsg) {
+		Debug.Log("Client Disconnected !");
+	}
+
+	/*public void OnPlayerConnected(NetworkPlayer player) {
+		Debug.Log("Client Connected !");
+		Debug.Log("Player " + playerCount + " connected from " + player.ipAddress + ":" + player.port);
+	}*/
+
+	/*public void OnPlayerDisconnected(NetworkPlayer player) {
 		Debug.Log("OnPlayerDisconnected() was called here on " + player);
 		Network.RemoveRPCs(player);
 		Network.DestroyPlayerObjects(player);
-	}
-	void Update () {
-		
-	}
+	}*/
 }

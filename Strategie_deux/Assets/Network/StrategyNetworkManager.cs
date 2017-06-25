@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class StrategyNetworkManager : MonoBehaviour {
-	StrategyServerManager server = null;
-	StrategyClientManager client = null;
-	bool isServer = false;
+
+	private StrategyServerManager server = null;
+	private StrategyClientManager client = null;
+	private bool isServer = true;
 		
 	public bool IsServer
 	{
@@ -25,23 +25,32 @@ public class StrategyNetworkManager : MonoBehaviour {
 	void Start () {
 	}
 
+	// Update is called once per frame
+	void Update() {
+	}
+
 	public void setUpNetworkManager() {
 		if (isServer)
 		{
+			Debug.Log("Starting up as a Server !");
 			server = gameObject.AddComponent<StrategyServerManager>();
-			server.connect();
+			server.Port = 4444;
+			server.Connect();
 		}
 		else
 		{
-			Debug.Log("Starting up as a client");
+			Debug.Log("Starting up as a client !");
 			client = new StrategyClientManager();
-			client.Ip = "127.0.0.1";
+			client.Address = "127.0.0.1";
 			client.Port = 4444;
-			client.connection();
+			client.Connect();
 		}
-	}	
-	// Update is called once per frame
-	void Update () {
-		
+	}
+
+	public void Disconect() {
+		if (isServer)
+			server.Disconnect();
+		else
+			client.Disconnect();
 	}
 }
