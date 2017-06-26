@@ -1,0 +1,257 @@
+Mono path[0] = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.9.8/StrategyGame_V0.1.9.8_Data/Managed'
+Mono path[1] = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.9.8/StrategyGame_V0.1.9.8_Data/Mono'
+Mono config path = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.9.8/StrategyGame_V0.1.9.8_Data/Mono/etc'
+PlayerConnection initialized from H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.9.8/StrategyGame_V0.1.9.8_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55130
+Multi-casting "[IP] 192.168.1.85 [Port] 55130 [Flags] 2 [Guid] 2592398711 [EditorId] 1856536737 [Version] 1048832 [Id] WindowsPlayer(Inferno47-PC) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55130]
+PlayerConnection already initialized - listening to [0.0.0.0:55130]
+Player data archive not found at `H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.1.9.8/StrategyGame_V0.1.9.8_Data/data.unity3d`, using local filesystemInitialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon R9 200 Series (ID=0x67b0)
+    Vendor:   ATI
+    VRAM:     3072 MB
+    Driver:   16.300.2311.0
+Begin MonoManager ReloadAssembly
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.018 seconds
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.894563 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: ac28 -> priority: 1 
+  Thread -> id: a684 -> priority: 1 
+  Thread -> id: 99c0 -> priority: 1 
+  Thread -> id: 49a8 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.864204 ms
+System memory in use before: 17.1 MB.
+System memory in use after: 17.2 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 965.
+Total: 0.667295 ms (FindLiveObjects: 0.043803 ms CreateObjectMapping: 0.020195 ms MarkObjects: 0.584808 ms  DeleteObjects: 0.017635 ms)
+
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.1.9.8\StrategyGame_V0.1.9.8_Data\Managed\System.Xml.dll (this message is harmless)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.026258 ms
+System memory in use before: 17.1 MB.
+System memory in use after: 17.0 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 357.
+Total: 0.270786 ms (FindLiveObjects: 0.021901 ms CreateObjectMapping: 0.015359 ms MarkObjects: 0.215320 ms  DeleteObjects: 0.017350 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.337061 ms
+System memory in use before: 17.1 MB.
+System memory in use after: 17.2 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 969.
+Total: 0.794440 ms (FindLiveObjects: 0.043803 ms CreateObjectMapping: 0.023324 ms MarkObjects: 0.715934 ms  DeleteObjects: 0.010524 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.828004 ms
+System memory in use before: 17.1 MB.
+System memory in use after: 17.0 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 358.
+Total: 0.294395 ms (FindLiveObjects: 0.024177 ms CreateObjectMapping: 0.016781 ms MarkObjects: 0.233240 ms  DeleteObjects: 0.019057 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.382287 ms
+System memory in use before: 17.1 MB.
+System memory in use after: 17.2 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 970.
+Total: 0.585945 ms (FindLiveObjects: 0.033848 ms CreateObjectMapping: 0.020195 ms MarkObjects: 0.523653 ms  DeleteObjects: 0.007679 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.828572 ms
+System memory in use before: 17.1 MB.
+System memory in use after: 17.0 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 359.
+Total: 0.303781 ms (FindLiveObjects: 0.029581 ms CreateObjectMapping: 0.013653 ms MarkObjects: 0.215889 ms  DeleteObjects: 0.043519 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.409593 ms
+System memory in use before: 17.2 MB.
+System memory in use after: 17.2 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 971.
+Total: 0.754049 ms (FindLiveObjects: 0.039537 ms CreateObjectMapping: 0.022186 ms MarkObjects: 0.683508 ms  DeleteObjects: 0.008248 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.837390 ms
+System memory in use before: 17.0 MB.
+System memory in use after: 17.0 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 360.
+Total: 0.303212 ms (FindLiveObjects: 0.021332 ms CreateObjectMapping: 0.026452 ms MarkObjects: 0.238076 ms  DeleteObjects: 0.017066 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.303212 ms
+System memory in use before: 17.1 MB.
+System memory in use after: 17.2 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 972.
+Total: 1.188958 ms (FindLiveObjects: 0.066843 ms CreateObjectMapping: 0.041528 ms MarkObjects: 1.066649 ms  DeleteObjects: 0.012799 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.895416 ms
+System memory in use before: 17.0 MB.
+System memory in use after: 17.0 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 361.
+Total: 0.248600 ms (FindLiveObjects: 0.015928 ms CreateObjectMapping: 0.013368 ms MarkObjects: 0.201098 ms  DeleteObjects: 0.017635 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.392526 ms
+System memory in use before: 17.1 MB.
+System memory in use after: 17.2 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 973.
+Total: 0.641696 ms (FindLiveObjects: 0.036408 ms CreateObjectMapping: 0.021332 ms MarkObjects: 0.574568 ms  DeleteObjects: 0.008248 ms)
+
+gUserMinAniso < 1
+UnityEngine.Texture:SetGlobalAnisotropicFilteringLimits(Int32, Int32)
+OptionMenuController:Appliquer() (at H:\EIP\Strategy-Games\Strategie_deux\Assets\Menu\OptionMenuController.cs:107)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:154)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:637)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:773)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:52)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:50)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:261)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:533)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:432)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:412)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:186)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:283)
+
+[C:\buildslave\unity\build\Runtime/Graphics/TextureSettings.cpp line 14] 
+(Filename: H:/EIP/Strategy-Games/Strategie_deux/Assets/Menu/OptionMenuController.cs Line: 107)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.992979 ms
+System memory in use before: 17.2 MB.
+System memory in use after: 17.1 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 371.
+Total: 0.264528 ms (FindLiveObjects: 0.019626 ms CreateObjectMapping: 0.012230 ms MarkObjects: 0.214183 ms  DeleteObjects: 0.018204 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.334785 ms
+System memory in use before: 17.3 MB.
+System memory in use after: 17.3 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 983.
+Total: 0.641127 ms (FindLiveObjects: 0.032426 ms CreateObjectMapping: 0.019910 ms MarkObjects: 0.581679 ms  DeleteObjects: 0.006826 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.923291 ms
+System memory in use before: 17.2 MB.
+System memory in use after: 17.1 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 372.
+Total: 0.242911 ms (FindLiveObjects: 0.019341 ms CreateObjectMapping: 0.012515 ms MarkObjects: 0.194272 ms  DeleteObjects: 0.016497 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.416704 ms
+System memory in use before: 17.3 MB.
+System memory in use after: 17.3 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 984.
+Total: 0.583385 ms (FindLiveObjects: 0.032141 ms CreateObjectMapping: 0.018773 ms MarkObjects: 0.525075 ms  DeleteObjects: 0.006826 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.797569 ms
+System memory in use before: 17.2 MB.
+System memory in use after: 17.1 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 373.
+Total: 0.271071 ms (FindLiveObjects: 0.021332 ms CreateObjectMapping: 0.014221 ms MarkObjects: 0.217311 ms  DeleteObjects: 0.017635 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.392242 ms
+System memory in use before: 17.3 MB.
+System memory in use after: 17.3 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 985.
+Total: 0.685215 ms (FindLiveObjects: 0.056319 ms CreateObjectMapping: 0.023608 ms MarkObjects: 0.585661 ms  DeleteObjects: 0.018488 ms)
+
+gUserMinAniso < 1
+UnityEngine.Texture:SetGlobalAnisotropicFilteringLimits(Int32, Int32)
+OptionMenuController:Appliquer() (at H:\EIP\Strategy-Games\Strategie_deux\Assets\Menu\OptionMenuController.cs:107)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:154)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:637)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:773)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:52)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:50)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:261)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:533)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:432)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:412)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:186)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:283)
+
+[C:\buildslave\unity\build\Runtime/Graphics/TextureSettings.cpp line 14] 
+(Filename: H:/EIP/Strategy-Games/Strategie_deux/Assets/Menu/OptionMenuController.cs Line: 107)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.782493 ms
+System memory in use before: 17.2 MB.
+System memory in use after: 17.1 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 374.
+Total: 0.253720 ms (FindLiveObjects: 0.020764 ms CreateObjectMapping: 0.014221 ms MarkObjects: 0.201383 ms  DeleteObjects: 0.016497 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.325399 ms
+System memory in use before: 17.3 MB.
+System memory in use after: 17.3 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 986.
+Total: 0.725890 ms (FindLiveObjects: 0.034417 ms CreateObjectMapping: 0.021048 ms MarkObjects: 0.569448 ms  DeleteObjects: 0.007679 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.819470 ms
+System memory in use before: 17.2 MB.
+System memory in use after: 17.1 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 375.
+Total: 0.303781 ms (FindLiveObjects: 0.019057 ms CreateObjectMapping: 0.013653 ms MarkObjects: 0.245755 ms  DeleteObjects: 0.025030 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.341327 ms
+System memory in use before: 17.3 MB.
+System memory in use after: 17.3 MB.
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 987.
+Total: 0.655064 ms (FindLiveObjects: 0.038399 ms CreateObjectMapping: 0.023039 ms MarkObjects: 0.585377 ms  DeleteObjects: 0.007679 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.883185 ms
+System memory in use before: 17.2 MB.
+System memory in use after: 17.1 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 375.
+Total: 0.288706 ms (FindLiveObjects: 0.017919 ms CreateObjectMapping: 0.013653 ms MarkObjects: 0.240920 ms  DeleteObjects: 0.015644 ms)
+
