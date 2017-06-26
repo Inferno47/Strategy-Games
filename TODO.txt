@@ -1,2 +1,7 @@
 -Finir Le MenuOption
+	- Recupere les valeurs dans le script c#: OK
+	- Save les valeurs dans un XML: NOK
+	- Charger les valeurs depuis un XML: NOK
+	- Appliquer les valeurs dans unity: En Cours
+	- Mettre les script du menu option au propre: NOK
 -Configuré l'instanciation de la scene StrategyGame

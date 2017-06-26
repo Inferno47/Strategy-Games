@@ -8,6 +8,20 @@ struct Windows {
 	public int y;
 }
 
+public enum SizeBuffer {
+	Simple,
+	Double,
+	Triple
+}
+
+public enum Aliasing {
+	None,
+	SSAA,
+	MSAA,
+	CSAA,
+	EQAA
+}
+
 public class OptionMenuController : MonoBehaviour {
 
 	private int graphic;
@@ -20,6 +34,8 @@ public class OptionMenuController : MonoBehaviour {
 	private int windowMode;
 	private int indexResolution;
 	private bool syncrovertical;
+	private SizeBuffer buffer;
+	private Aliasing antiAliasing;
 	private List<Windows> resolution = null;
 
 	public bool Syncrovertical
@@ -152,6 +168,32 @@ public class OptionMenuController : MonoBehaviour {
 		}
 	}
 
+	public int Buffer
+	{
+		get
+		{
+			return (int)buffer;
+		}
+
+		set
+		{
+			buffer = (SizeBuffer)value;
+		}
+	}
+
+	public int AntiAliasing
+	{
+		get
+		{
+			return (int)antiAliasing;
+		}
+
+		set
+		{
+			antiAliasing = (Aliasing)value;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 		CreateResolution();
@@ -239,7 +281,7 @@ public class OptionMenuController : MonoBehaviour {
 	}
 
 	public void Load() {
-		//Load Configuration
+		//Load Configuration in XML
 	}
 
 	public void Save () {
@@ -248,12 +290,14 @@ public class OptionMenuController : MonoBehaviour {
 		Debug.Log("Shadow = " + shadow);
 		Debug.Log("Textures = " + textures);
 		Debug.Log("Processing = " + processing);
+		Debug.Log("Buffer = " + buffer);
+		Debug.Log("Mode AntiAliasing = " + antiAliasing);
 		Debug.Log("Sky = " + sky);
 		Debug.Log("Antialisaing = " + x(antialiasing));
 		Debug.Log("Anisotropic = " + x(anisotropic));
 		Debug.Log("Resolution = " + resolution[indexResolution].x + "x" + resolution[indexResolution].y);
 		Debug.Log("Mode Windows = " + (windowMode == 0 ? true : false));
-		//Save Configuration
+		//Save Configuration in XML
 	}
 
 	public int x (int nb) {
