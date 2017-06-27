@@ -29,10 +29,8 @@ public class OptionMenuController : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		CreateResolution();
-		if (File.Exists("Settings.xml"))
-			LoadSettings();
-		else
-			Settings = new GameSettings();
+		Settings = GameSettings.LoadSettings("Settings.xml");
+		LoadUI();
 		if (SceneManager.GetActiveScene().name == "OptionMenu")
 			NotInGame();
 	}
@@ -60,14 +58,6 @@ public class OptionMenuController : MonoBehaviour {
 		}
 	}
 
-	public void LoadSettings() {
-		XmlSerializer serializer = new XmlSerializer(typeof(GameSettings));
-		FileStream stream = new FileStream("Settings.xml", FileMode.Open);
-		Settings = serializer.Deserialize(stream) as GameSettings;
-		stream.Close();	
-		LoadUI();
-	}
-
 	public void LoadUI() {	
 		general = true;
 		fullScreenToggle.isOn = Settings.fullScreen;
@@ -86,15 +76,7 @@ public class OptionMenuController : MonoBehaviour {
 		general = false;
 	}
 
-
-	public void SaveSettings () {
-		XmlSerializer serializer = new XmlSerializer(typeof(GameSettings));
-		FileStream stream = new FileStream("Settings.xml", FileMode.Create);
-		serializer.Serialize(stream, Settings);
-		stream.Close();
-	}
-
-	public void Back () {
+	public void Return () {
 		if (SceneManager.GetActiveScene().name != "OptionMenu")
 			SceneManager.UnloadSceneAsync("OptionMenu");
 		else
@@ -103,8 +85,8 @@ public class OptionMenuController : MonoBehaviour {
 
 	public void Apply () {
 		Settings.Apply();
-		SaveSettings();
-		Back();
+		Settings.SaveSettings("Settings.xml");
+		Return();
 	}
 
 	public void UpdateAA(int postProcessing) {
