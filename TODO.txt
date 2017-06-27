@@ -1,12 +1,18 @@
--Finir Le MenuOption
-	- Recupere les valeurs dans le script c#: 11/11
-	- Save les valeurs dans un XML: 11/11
-	- Charger les valeurs depuis un XML: 11/11
-	- Charger les valeurs dans unity: 11/11
-	- Appliquer les valeurs dans unity: 11/11
-	- Mettre les script du menu option au propre: OK
+-Network Server:
+	- Client: Ok
+	- Serveur: Ok
+-Menu:
+	-Main : Ok
+	-Multy : Ok
+	-MenuOption :
+		- Recupere les valeurs dans le script c#: 11/11
+		- Save les valeurs dans un XML: 11/11
+		- Charger les valeurs depuis un XML: 11/11
+		- Charger les valeurs dans unity: 11/11
+		- Appliquer les valeurs dans unity: 11/11
+		- Mettre les script du menu option au propre: OK
 -Configurer l'instanciation de StrategyGame : OK
 -Mettre Le GameSettings en mode object DontDestroyOnLoad
--Crée les Spawners
+-CrÃ©e les Spawners
 -Faire le Post-Processing
 -Faire le GameController
