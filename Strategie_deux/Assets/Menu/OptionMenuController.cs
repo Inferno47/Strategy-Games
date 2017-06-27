@@ -14,7 +14,6 @@ public class OptionMenuController : MonoBehaviour {
 	public Dropdown resolutionDropdown;
 	public Dropdown graphicDropdown;
 	public Dropdown textureDropdown;
-	public Dropdown skyDropdown;
 	public Dropdown shadowDropdown;
 	public Dropdown aaDropdown;
 	public Dropdown anisotropicDropdown;
@@ -34,11 +33,19 @@ public class OptionMenuController : MonoBehaviour {
 			LoadSettings();
 		else
 			Settings = new GameSettings();
+		if (SceneManager.GetActiveScene().name == "OptionMenu")
+			NotInGame();
 	}
 
 	// Update is called once per frame
 	void Update() {
 	 }
+
+	private void NotInGame() {
+		GameObject[] RootObject = this.gameObject.scene.GetRootGameObjects();
+		RootObject[0].SetActive(true);
+		RootObject[1].SetActive(true);
+	}
 
 	private void CreateResolution()
 	{
@@ -47,7 +54,7 @@ public class OptionMenuController : MonoBehaviour {
 
 		foreach (Resolution resolution in resolutions)
 		{
-			if ((resolution.height != Previous.height) && (resolution.width != Previous.width))
+			if ((resolution.height != Previous.height) || (resolution.width != Previous.width))
 				resolutionDropdown.options.Add(new Dropdown.OptionData(resolution.ToString()));
 			Previous = resolution;
 		}
@@ -57,11 +64,8 @@ public class OptionMenuController : MonoBehaviour {
 		XmlSerializer serializer = new XmlSerializer(typeof(GameSettings));
 		FileStream stream = new FileStream("Settings.xml", FileMode.Open);
 		Settings = serializer.Deserialize(stream) as GameSettings;
-		stream.Close();
-		
+		stream.Close();	
 		LoadUI();
-		
-		
 	}
 
 	public void LoadUI() {	
@@ -71,7 +75,6 @@ public class OptionMenuController : MonoBehaviour {
 		HDRToggle.isOn = Settings.HDR;
 		resolutionDropdown.value = Settings.resolutionIndex;
 		textureDropdown.value = Settings.texturesQuality;
-		skyDropdown.value = Settings.skyQuality;
 		shadowDropdown.value = Settings.shadowQuality;
 		postProcessingDropdown.value = Settings.postProcessing;
 		bufferDropdown.value = Settings.buffer;
@@ -80,7 +83,7 @@ public class OptionMenuController : MonoBehaviour {
 		aaDropdown.value = Settings.antiAliasing;
 		graphicDropdown.value = Settings.graphicQuality;
 		resolutionDropdown.RefreshShownValue();
-		
+		general = false;
 	}
 
 
@@ -91,25 +94,17 @@ public class OptionMenuController : MonoBehaviour {
 		stream.Close();
 	}
 
-	public void Retour () {
-		SceneManager.LoadScene("MainMenu");
+	public void Back () {
+		if (SceneManager.GetActiveScene().name != "OptionMenu")
+			SceneManager.UnloadSceneAsync("OptionMenu");
+		else
+			SceneManager.LoadScene("MainMenu");
 	}
 
-	public void Appliquer() {
-		Screen.SetResolution(resolutions[Settings.resolutionIndex].width, resolutions[Settings.resolutionIndex].height, Settings.fullScreen);
-		QualitySettings.shadowResolution = (ShadowResolution)Settings.shadowQuality;
-		QualitySettings.antiAliasing = (Settings.antiAliasing == 0 ? 0 : (int)Mathf.Pow(2, Settings.antiAliasing));
-		QualitySettings.masterTextureLimit = Settings.texturesQuality;
-		QualitySettings.vSyncCount = Settings.vSync == true ? 1 : 0;
-		QualitySettings.asyncUploadBufferSize = (Settings.buffer == 0 ? 0 : (int)Mathf.Pow(4, Settings.buffer));
-		Camera.current.allowHDR = Settings.HDR;
-		QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;
-		Texture.SetGlobalAnisotropicFilteringLimits(Settings.anisotropic , 9);
-		if (Settings.methodAntiAliasing == 1)
-			Camera.current.allowMSAA = true;
+	public void Apply () {
+		Settings.Apply();
 		SaveSettings();
-		Retour();
-		//Application of options 11/12
+		Back();
 	}
 
 	public void UpdateAA(int postProcessing) {
@@ -120,32 +115,25 @@ public class OptionMenuController : MonoBehaviour {
 			methodAntiAliasingDropdown.options.Add(new Dropdown.OptionData("SSAA"));
 		}
 		else if (postProcessing == 0 && methodAntiAliasingDropdown.options.Count == 5)
-		{
 			methodAntiAliasingDropdown.options.RemoveRange(2, 3);
-			methodAntiAliasingDropdown.RefreshShownValue();
-		}
+		methodAntiAliasingDropdown.RefreshShownValue();
 	}
 
-	public void ModeCustom()
-	{
+	public void ModeCustom() {
 		if (general == false)
 			graphicDropdown.value = 4;
 	}
 
-	public void SetFullScreen(bool enable)
-	{
+	public void SetFullScreen(bool enable) {
 		Settings.fullScreen = enable;
 	}
 
-	public void SetVSync(bool enable)
-	{
+	public void SetVSync(bool enable) {
 		Settings.vSync = enable;
 		ModeCustom();
-
 	}
 
-	public void SetHDR(bool enable)
-	{
+	public void SetHDR(bool enable) {
 		Settings.HDR = enable;
 		ModeCustom();
 	}
@@ -160,7 +148,6 @@ public class OptionMenuController : MonoBehaviour {
 		{
 			general = true;
 			textureDropdown.value = graphic;
-			skyDropdown.value = graphic;
 			shadowDropdown.value = graphic;
 			aaDropdown.value = graphic;
 			postProcessingDropdown.value = graphic;
@@ -174,17 +161,11 @@ public class OptionMenuController : MonoBehaviour {
 			else
 				HDRToggle.isOn = false;
 			general = false;
-		}
+		}		
 	}
 
 	public void SetTextureQuality(int texture) {
 		Settings.texturesQuality = texture;
-		ModeCustom();
-
-	}
-
-	public void SetSkyQuality(int sky) {
-		Settings.skyQuality = sky;
 		ModeCustom();
 	}
 

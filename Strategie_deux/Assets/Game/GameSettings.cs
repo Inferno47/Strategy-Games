@@ -13,7 +13,6 @@ public class GameSettings {
 
 	public int graphicQuality;
 	public int texturesQuality;
-	public int skyQuality;
 	public int shadowQuality;
 	public int antiAliasing;
 	public int resolutionIndex;
@@ -25,7 +24,12 @@ public class GameSettings {
 	// Use this for initialization
 	void Start () {
 	}
-	
+
+	// Update is called once per frame
+	void Update() {
+
+	}
+
 	public void DebugLog()
 	{
 		Debug.Log("GameSettings");
@@ -35,7 +39,6 @@ public class GameSettings {
 		Debug.Log("Graphic = " + graphicQuality);
 		Debug.Log("Shadow = " + shadowQuality);
 		Debug.Log("Textures = " + texturesQuality);
-		Debug.Log("Sky = " + shadowQuality);
 		Debug.Log("AntiAliasing = " + (antiAliasing == 0 ? 0 : (int)Mathf.Pow(2, antiAliasing)));
 		Debug.Log("Resolution = " + resolutionIndex);
 		Debug.Log("Mode AntiAliasing = " + methodAntiAliasing);
@@ -43,8 +46,24 @@ public class GameSettings {
 		Debug.Log("PostProcessing = " + postProcessing);
 		Debug.Log("Buffer = " + buffer);
 	}
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void Apply() {
+		Resolution[] resolutions = Screen.resolutions;
+		Screen.SetResolution(resolutions[resolutionIndex].width, resolutions[resolutionIndex].height, fullScreen);
+		QualitySettings.shadowResolution = (ShadowResolution)shadowQuality;
+		QualitySettings.antiAliasing = (antiAliasing == 0 ? 0 : (int)Mathf.Pow(2, antiAliasing));
+		QualitySettings.masterTextureLimit = texturesQuality;
+		QualitySettings.vSyncCount = vSync == true ? 1 : 0;
+		QualitySettings.asyncUploadBufferSize = (buffer == 0 ? 0 : (int)Mathf.Pow(4, buffer));
+		QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;
+		Texture.SetGlobalAnisotropicFilteringLimits((int)Mathf.Pow(2, anisotropic), 9);
+		if (Camera.main != null)
+			ApplycCamera();
+	}
+
+	public void ApplycCamera () {
+		if (methodAntiAliasing == 1)
+			Camera.main.allowMSAA = true;
+		Camera.main.allowHDR = HDR;
 	}
 }

@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
 	private NetworkMenuController networkManager;
 	private List<PlayerController> playerCtrls;
+	private bool Solo;
 
 	public NetworkMenuController NetworkManager
 	{
@@ -35,15 +37,28 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		networkManager = GameObject.Find("MultiplayerObject").GetComponent<NetworkMenuController>();
 		playerCtrls = new List<PlayerController>();
+		LoadNetwork();
 	}
 
 	// Update is called once per frame
 	void Update() {
 	}
 
-	public void beginExecution() {
+	private void LoadNetwork() {
+		Solo = true;
+		if (GameObject.Find("MultiplayerObject"))
+			networkManager = GameObject.Find("MultiplayerObject").GetComponent<NetworkMenuController>();
+		else
+			Solo = false;
+	}
+
+	public void MenuOption () {
+		SceneManager.LoadScene("OptionMenu", LoadSceneMode.Additive);
+	}
+
+	public void Exit() {
 		networkManager.Disconect();
+		SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
 	}
 }
