@@ -15,7 +15,7 @@
 	- Save les valeurs dans un XML: 11/11
 	- Save les valeurs dans unity: 11/11
 	- Charger les valeurs depuis un XML: 11/11
-	- Charger les valeurs depuis unity: 11/11
+	- Charger les valeurs depuis unity: 0/11
 	- DontDestroyOnLoad : NOK
 	- Dans toutes les Scene : NOK
 	
