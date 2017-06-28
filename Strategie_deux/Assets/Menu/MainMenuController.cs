@@ -3,27 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	}
+public class MainMenuController : MonoBehaviour
+{
+    private ManagerScene managerScene;
+    // Use this for initialization
+    void Start () {
+        managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
+    }
 
 	// Update is called once per frame
 	void Update() {
 	}
 
 	public void Solo () {
-		SceneManager.LoadScene("StrategyGame", LoadSceneMode.Single);
-	}
+	    managerScene.LoadScene("StrategyGame", LoadSceneMode.Additive);
+    }
 
 	public void MultiJoueur () {
-		SceneManager.LoadScene("MultiplayerMenu", LoadSceneMode.Single);
-
-	}
+	    managerScene.LoadScene("MultiplayerMenu", LoadSceneMode.Additive);
+    }
 
 	public void Option () {
-		SceneManager.LoadScene("OptionMenu", LoadSceneMode.Single);
+        managerScene.LoadScene("OptionMenu", LoadSceneMode.Additive);
 	}
 
 	public void Quiter() {

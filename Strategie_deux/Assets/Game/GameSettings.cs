@@ -49,8 +49,7 @@ public class GameSettings
 	}
 
 	public void ApplycCamera () {
-		if (methodAntiAliasing == 1)
-			Camera.main.allowMSAA = true;
+		Camera.main.allowMSAA = methodAntiAliasing == 1 ? true : false;
 		Camera.main.allowHDR = HDR;
 	}
 
@@ -81,7 +80,7 @@ public class GameSettings
 		if (File.Exists(file))
 			settings = LoadSettingsFromXml(file);
 		else
-			settings = new GameSettings();
+			settings = LoadSettingsFromUnity();
 		return settings;
 			
 	}
@@ -94,10 +93,36 @@ public class GameSettings
 		return settings;
 	}
 
-	/// <summary>
-	/// DEBUG Function
-	/// </summary>
-	public void DebugLog() {
+    private static GameSettings LoadSettingsFromUnity() {
+        GameSettings settings = new GameSettings()
+        {
+            shadowQuality = (int)QualitySettings.shadowResolution,
+            antiAliasing = (int)Mathf.Log(QualitySettings.antiAliasing, 2),
+            texturesQuality = QualitySettings.masterTextureLimit,
+            vSync = QualitySettings.vSyncCount == 1 ? true : false,
+            buffer = (int)Mathf.Log(QualitySettings.asyncUploadBufferSize, 2),
+            anisotropic = 0,
+            methodAntiAliasing = Camera.main.allowMSAA == true ? 1 : 0,
+            HDR = Camera.main.allowHDR,
+            fullScreen = Screen.fullScreen,
+            resolutionIndex = FindResolution()
+        };
+        return settings;
+    }
+
+    private static int FindResolution()  {
+        Resolution current = Screen.currentResolution;
+        Resolution[] resolutions = Screen.resolutions;
+        for (int i = 0; i < resolutions.Length; i++)
+            if (resolutions[i].width == current.width && resolutions[i].height == current.height)
+                return i;
+        return 0;
+    }
+
+    /// <summary>
+    /// DEBUG Function
+    /// </summary>
+    public void DebugLog() {
 		Debug.Log("GameSettings");
 		Debug.Log("Sync = " + vSync);
 		Debug.Log("HDR = " + HDR);
