@@ -33,29 +33,31 @@ public class NetworkMenuController : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update() {
+	void Update () {
 	}
 
 	public void SetPort (InputField port) {
-		Port = int.Parse(port.text);
+		if (port.text != "")
+			Port = int.Parse(port.text);
 	}
 
-	public void SetIp(InputField address) {
-		Address = address.text;
+	public void SetIp (InputField address) {
+		if (address.text != "")
+			Address = address.text;
 	}
 
-	public void Valider() {
+	public void Valider () {
 		Debug.Log("Starting up !");
 		SetUpNetworkManager();
 		managerScene.LoadScene("StrategyGame", LoadSceneMode.Additive);
 	}
 	
-	public void Return() {
+	public void Return () {
 		managerScene.LoadScene("MainMenu", LoadSceneMode.Additive);
+		Destroy(this.gameObject);
 	}
 
-
-	public void SetUpNetworkManager() {
+	public void SetUpNetworkManager () {
 		if (isServer)
 			Manager = gameObject.AddComponent<StrategyServerManager>();
 		else
@@ -65,7 +67,8 @@ public class NetworkMenuController : MonoBehaviour {
 		Manager.Connect();
 	}
 
-	public void Disconect() {
+	public void Disconect () {
 		Manager.Disconnect();
+		Destroy(this.gameObject);
 	}
 }

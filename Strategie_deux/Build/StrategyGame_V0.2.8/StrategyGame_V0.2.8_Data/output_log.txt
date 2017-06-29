@@ -1,0 +1,90 @@
+Mono path[0] = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.2.8/StrategyGame_V0.2.8_Data/Managed'
+Mono path[1] = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.2.8/StrategyGame_V0.2.8_Data/Mono'
+Mono config path = 'H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.2.8/StrategyGame_V0.2.8_Data/Mono/etc'
+PlayerConnection initialized from H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.2.8/StrategyGame_V0.2.8_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55338
+Multi-casting "[IP] 192.168.1.85 [Port] 55338 [Flags] 2 [Guid] 1092731908 [EditorId] 32745794 [Version] 1048832 [Id] WindowsPlayer(Inferno47-PC) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55338]
+PlayerConnection already initialized - listening to [0.0.0.0:55338]
+Player data archive not found at `H:/EIP/Strategy-Games/Strategie_deux/Build/StrategyGame_V0.2.8/StrategyGame_V0.2.8_Data/data.unity3d`, using local filesystemInitialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon R9 200 Series (ID=0x67b0)
+    Vendor:   ATI
+    VRAM:     3072 MB
+    Driver:   16.300.2311.0
+Begin MonoManager ReloadAssembly
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.019 seconds
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: H:\EIP\Strategy-Games\Strategie_deux\Build\StrategyGame_V0.2.8\StrategyGame_V0.2.8_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.947473 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 516c -> priority: 1 
+  Thread -> id: 7360 -> priority: 1 
+  Thread -> id: 6c7c -> priority: 1 
+  Thread -> id: 53b8 -> priority: 1 
+MultiplayerMenu
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+ManagerScene:OnSceneLoaded(Scene, LoadSceneMode) (at H:\EIP\Strategy-Games\Strategie_deux\Assets\Game\ManagerScene.cs:58)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\SceneManagerBindings.gen.cs:245)
+ 
+(Filename: H:/EIP/Strategy-Games/Strategie_deux/Assets/Game/ManagerScene.cs Line: 58)
+
+SettingsMenu
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+ManagerScene:OnSceneLoaded(Scene, LoadSceneMode) (at H:\EIP\Strategy-Games\Strategie_deux\Assets\Game\ManagerScene.cs:58)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\SceneManagerBindings.gen.cs:245)
+ 
+(Filename: H:/EIP/Strategy-Games/Strategie_deux/Assets/Game/ManagerScene.cs Line: 58)
+
+StrategyGame
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+ManagerScene:OnSceneLoaded(Scene, LoadSceneMode) (at H:\EIP\Strategy-Games\Strategie_deux\Assets\Game\ManagerScene.cs:58)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\SceneManagerBindings.gen.cs:245)
+ 
+(Filename: H:/EIP/Strategy-Games/Strategie_deux/Assets/Game/ManagerScene.cs Line: 58)
+
+False
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GameController:Exit() (at H:\EIP\Strategy-Games\Strategie_deux\Assets\Controllers\GameController.cs:65)
+GameController:Update() (at H:\EIP\Strategy-Games\Strategie_deux\Assets\Controllers\GameController.cs:49)
+ 
+(Filename: H:/EIP/Strategy-Games/Strategie_deux/Assets/Controllers/GameController.cs Line: 65)
+
+SettingsMenu
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+ManagerScene:OnSceneLoaded(Scene, LoadSceneMode) (at H:\EIP\Strategy-Games\Strategie_deux\Assets\Game\ManagerScene.cs:58)
+UnityEngine.SceneManagement.SceneManager:Internal_SceneLoaded(Scene, LoadSceneMode) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\SceneManagerBindings.gen.cs:245)
+ 
+(Filename: H:/EIP/Strategy-Games/Strategie_deux/Assets/Game/ManagerScene.cs Line: 58)
+

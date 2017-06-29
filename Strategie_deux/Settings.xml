@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<GameSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <vSync>true</vSync>
+  <fullScreen>false</fullScreen>
+  <HDR>true</HDR>
+  <graphicQuality>4</graphicQuality>
+  <texturesQuality>0</texturesQuality>
+  <shadowQuality>2</shadowQuality>
+  <antiAliasing>1</antiAliasing>
+  <resolutionIndex>17</resolutionIndex>
+  <anisotropic>0</anisotropic>
+  <methodAntiAliasing>1</methodAntiAliasing>
+  <buffer>2</buffer>
+  <postProcessing>0</postProcessing>
+</GameSettings>

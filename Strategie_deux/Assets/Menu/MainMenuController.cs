@@ -5,29 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    private ManagerScene managerScene;
-    // Use this for initialization
-    void Start () {
-        managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
-    }
+	private ManagerScene managerScene;
+
+	// Use this for initialization
+	void Start () {
+		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
+	}
 
 	// Update is called once per frame
 	void Update() {
 	}
 
-	public void Solo () {
-	    managerScene.LoadScene("StrategyGame", LoadSceneMode.Additive);
-    }
-
-	public void MultiJoueur () {
-	    managerScene.LoadScene("MultiplayerMenu", LoadSceneMode.Additive);
-    }
-
-	public void Option () {
-        managerScene.LoadScene("OptionMenu", LoadSceneMode.Additive);
+	public void Single () {
+		managerScene.LoadScene("StrategyGame", LoadSceneMode.Additive);
 	}
 
-	public void Quiter() {
+	public void MultiPlayer () {
+		managerScene.LoadScene("MultiplayerMenu", LoadSceneMode.Additive);
+	}
+
+	public void Settings () {
+		managerScene.LoadScene("SettingsMenu", LoadSceneMode.Additive);
+	}
+
+	public void Quit() {
 		Application.Quit();
 	}
 }

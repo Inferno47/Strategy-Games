@@ -58,10 +58,11 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void MenuOption () {
-		managerScene.LoadScene("OptionMenu", LoadSceneMode.Additive);
+		managerScene.LoadScene("SettingsMenu", LoadSceneMode.Additive);
 	}
 
 	public void Exit() {
+		Debug.Log(Solo);
 		if (Solo == true)
 			networkManager.Disconect();
 		managerScene.LoadScene("MainMenu", LoadSceneMode.Additive);
