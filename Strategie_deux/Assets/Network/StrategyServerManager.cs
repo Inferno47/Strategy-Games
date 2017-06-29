@@ -5,8 +5,11 @@ using UnityEngine.Networking;
 
 public class StrategyServerManager : ANetworkManager {
 
+	List<NetworkPlayer> players = null;
+
 	// Use this for initialization
 	void Start () {
+		players = new List<NetworkPlayer>();
 	}
 
 	// Update is called once per frame
@@ -33,14 +36,21 @@ public class StrategyServerManager : ANetworkManager {
 		Debug.Log("Client Disconnected !");
 	}
 
-	/*public void OnPlayerConnected(NetworkPlayer player) {
-		Debug.Log("Client Connected !");
-		Debug.Log("Player " + playerCount + " connected from " + player.ipAddress + ":" + player.port);
-	}*/
+	private void OnPlayerConnected(NetworkPlayer player) {
+		Debug.Log("Players " + players.Count + " connected from " + player.ipAddress + ":" + player.port);
+		players.Add(player);
+	}
 
-	/*public void OnPlayerDisconnected(NetworkPlayer player) {
-		Debug.Log("OnPlayerDisconnected() was called here on " + player);
+	private void OnPlayerDisconnected(NetworkPlayer player) {
+		Debug.Log("Players " + players.Count + " disconnected from " + player.ipAddress + ":" + player.port);
+		RemovePlayer(player);
 		Network.RemoveRPCs(player);
 		Network.DestroyPlayerObjects(player);
-	}*/
+	}
+
+	public void RemovePlayer(NetworkPlayer find) {
+		for (int i = 0; i < players.Count - 1; i++)
+			if (players[i].Equals(find))
+				players.RemoveAt(i);
+	}
 }

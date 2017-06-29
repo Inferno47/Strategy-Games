@@ -25,15 +25,15 @@ public class OptionMenuController : MonoBehaviour {
 	public bool general;
 	private Resolution[] resolutions = null;
 	private GameSettings Settings;
-    private ManagerScene managerScene;
+	private ManagerScene managerScene;
 
-    // Use this for initialization
-    void Start() {
+	// Use this for initialization
+	void Start() {
 		CreateResolution();
 		Settings = GameSettings.LoadSettings("Settings.xml");
 		LoadUI();
-        managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
-    }
+		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
+	}
 
 	// Update is called once per frame
 	void Update() {
@@ -71,12 +71,12 @@ public class OptionMenuController : MonoBehaviour {
 	}
 
 	public void Return () {
-	    managerScene.UnLoadScene("OptionMenu");
-    }
+		managerScene.UnLoadScene("OptionMenu");
+	}
 
-    public void SaveSettings() {
-        Settings.SaveSettings("Settings.xml");
-    }
+	public void SaveSettings() {
+		Settings.SaveSettings("Settings.xml");
+	}
 
 	public void Apply () {
 		Settings.Apply();

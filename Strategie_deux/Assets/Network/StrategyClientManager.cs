@@ -35,11 +35,11 @@ public class StrategyClientManager : ANetworkManager {
 		Debug.Log("Disconnected Successful !");
 	}
 
-	/*public void OnConnectedToServer() {
+	public void OnConnectedToServer() {
 		Debug.Log("Connected to server");
-	}*/
+	}
 
-	/*public void OnDisconnectedFromServer(NetworkDisconnection info) {
+	public void OnDisconnectedFromServer(NetworkDisconnection info) {
 		Debug.Log("Disconnected from server: " + info);
-	}*/
+	}
 }

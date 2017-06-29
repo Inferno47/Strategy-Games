@@ -1,4 +1,4 @@
-﻿-Network Server v0.8:
+﻿-Network Server v0.9:
 	- Client: Ok
 	- Serveur: Ok
 

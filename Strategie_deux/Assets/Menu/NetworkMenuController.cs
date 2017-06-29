@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class NetworkMenuController : MonoBehaviour {
 
 	private ANetworkManager Manager = null;
-    private ManagerScene managerScene;
+	private ManagerScene managerScene = null;
 
-    private int Port = 4444;
+	private int Port = 4444;
 	private bool isServer = true;
 	private string Address = "127.0.0.1";
 
@@ -29,8 +29,8 @@ public class NetworkMenuController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		DontDestroyOnLoad(this);
-	    managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
-    }
+		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
+	}
 
 	// Update is called once per frame
 	void Update() {
@@ -47,8 +47,13 @@ public class NetworkMenuController : MonoBehaviour {
 	public void Valider() {
 		Debug.Log("Starting up !");
 		SetUpNetworkManager();
-	    managerScene.LoadScene("StrategyGame", LoadSceneMode.Additive);
-    }
+		managerScene.LoadScene("StrategyGame", LoadSceneMode.Additive);
+	}
+	
+	public void Return() {
+		managerScene.LoadScene("MainMenu", LoadSceneMode.Additive);
+	}
+
 
 	public void SetUpNetworkManager() {
 		if (isServer)

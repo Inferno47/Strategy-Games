@@ -7,8 +7,8 @@ public class GameController : MonoBehaviour {
 
 	private NetworkMenuController networkManager;
 	private List<PlayerController> playerCtrls;
-    private ManagerScene managerScene;
-    private bool Solo = false;
+	private ManagerScene managerScene;
+	private bool Solo = false;
 
 	public NetworkMenuController NetworkManager
 	{
@@ -39,15 +39,15 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playerCtrls = new List<PlayerController>();
-	    managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
-	    LoadNetwork();
-	    MenuOption();
+		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
+		MenuOption();
+		LoadNetwork();
 	}
 
 	// Update is called once per frame
 	void Update() {
-	    Exit();
-    }
+		Exit();
+	}
 
 	private void LoadNetwork() {
 		Solo = true;
@@ -58,12 +58,12 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void MenuOption () {
-	    managerScene.LoadScene("OptionMenu", LoadSceneMode.Additive);
-    }
+		managerScene.LoadScene("OptionMenu", LoadSceneMode.Additive);
+	}
 
 	public void Exit() {
-        if (Solo == true)
-		    networkManager.Disconect();
-        managerScene.LoadScene("MainMenu", LoadSceneMode.Additive);
-    }
+		if (Solo == true)
+			networkManager.Disconect();
+		managerScene.LoadScene("MainMenu", LoadSceneMode.Additive);
+	}
 }
