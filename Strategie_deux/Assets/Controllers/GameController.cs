@@ -40,31 +40,23 @@ public class GameController : MonoBehaviour {
 	void Start () {
 		playerCtrls = new List<PlayerController>();
 		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
-		MenuOption();
 		LoadNetwork();
+		managerScene.LoadScene("GameMenu", LoadSceneMode.Additive);
 	}
 
 	// Update is called once per frame
 	void Update() {
-		Exit();
 	}
 
 	private void LoadNetwork() {
-		Solo = true;
 		if (GameObject.Find("MultiplayerObject") != null)
 			networkManager = GameObject.Find("MultiplayerObject").GetComponent<NetworkMenuController>();
 		else
-			Solo = false;
+			Solo = true;
 	}
 
-	public void MenuOption () {
-		managerScene.LoadScene("SettingsMenu", LoadSceneMode.Additive);
-	}
-
-	public void Exit() {
-		Debug.Log(Solo);
-		if (Solo == true)
+	public void UnloadNetwork() {
+		if (Solo == false)
 			networkManager.Disconect();
-		managerScene.LoadScene("MainMenu", LoadSceneMode.Additive);
 	}
 }
