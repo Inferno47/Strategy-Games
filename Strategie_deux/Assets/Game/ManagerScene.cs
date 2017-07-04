@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,9 +32,8 @@ public class ManagerScene : MonoBehaviour
 			Destroy(this.gameObject);
 		DontDestroyOnLoad(this);
 		SceneManager.sceneLoaded += OnSceneLoaded;
-		ListScene = new List<Pair<Scene, string>>();
-		ListScene.Add(new Pair<Scene, string>(SceneManager.GetActiveScene(), "MainMenu"));
-		settings = GameSettings.LoadSettings("Settings.xml");
+	    ListScene = new List<Pair<Scene, string>> {new Pair<Scene, string>(SceneManager.GetActiveScene(), "MainMenu")};
+	    settings = GameSettings.LoadSettings("Settings.xml");
 		settings.Apply();
 	}
 	
@@ -71,14 +71,15 @@ public class ManagerScene : MonoBehaviour
 
 	public void UnLoadScene(string name) {
 		int index = FindScene(name);
-		if (index == -1)
-			return;
-		if (index == 0)
+		switch (index)
 		{
-			LoadScene(previousScene, LoadSceneMode.Single);
-			return;
+		    case -1:
+		        return;
+		    case 0:
+		        LoadScene(previousScene, LoadSceneMode.Single);
+		        return;
 		}
-		SceneManager.UnloadSceneAsync(name);
+	    SceneManager.UnloadSceneAsync(name);
 		ListScene.RemoveAt(index);
 		if (index == 0)
 			return;
@@ -107,18 +108,14 @@ public class ManagerScene : MonoBehaviour
 		return -1;
 	}
 
-	private GameObject FindGameObjectByName(GameObject[] listGameObjects, string name) {
-		for (int i = 0; i < listGameObjects.Length; i++)
-			if (listGameObjects[i].name == name)
-				return listGameObjects[i];
-		return null;
+	private GameObject FindGameObjectByName(GameObject[] listGameObjects, string name)
+	{
+	    return listGameObjects.FirstOrDefault(tmp => tmp.name == name);
 	}
 
 	public GameObject FindGameObjectByScene(string scene, string name)  {
 		int indexScene = FindScene(scene);
-		if (indexScene == -1)
-			return null;
-		return FindGameObjectByName(ListScene[indexScene].First.GetRootGameObjects(), name);
+		return indexScene == -1 ? null : FindGameObjectByName(ListScene[indexScene].First.GetRootGameObjects(), name);
 	}
 
 	private void EnableCanvas(int index) {

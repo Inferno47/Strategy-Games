@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour {
 		playerCtrls = new List<PlayerController>();
 		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
 		LoadNetwork();
-		managerScene.LoadScene("GameMenu", LoadSceneMode.Additive);
+		managerScene.LoadScene("PauseMenu", LoadSceneMode.Additive);
 	}
 
 	// Update is called once per frame

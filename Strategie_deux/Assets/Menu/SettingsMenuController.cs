@@ -30,10 +30,10 @@ public class SettingsMenuController : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		CreateResolution();
-		Settings = GameSettings.LoadSettings("Settings.xml");
-		LoadUI();
 		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
-	}
+	    Settings = managerScene.GetSettings();
+	    LoadUI();
+    }
 
 	// Update is called once per frame
 	void Update() {
@@ -121,24 +121,16 @@ public class SettingsMenuController : MonoBehaviour {
 
 	public void SetGraphicQuality(int graphic) {
 		Settings.graphicQuality = graphic;
-		if (graphic < 4)
-		{
-			general = true;
-			textureDropdown.value = graphic;
-			shadowDropdown.value = graphic;
-			aaDropdown.value = graphic;
-			postProcessingDropdown.value = graphic;
-			anisotropicDropdown.value = graphic;
-			if (graphic > 1)
-				vSyncToggle.isOn = true;
-			else
-				vSyncToggle.isOn = false;
-			if (graphic > 2)
-				HDRToggle.isOn = true;
-			else
-				HDRToggle.isOn = false;
-			general = false;
-		}		
+	    if (graphic >= 4) return;
+	    general = true;
+	    textureDropdown.value = graphic;
+	    shadowDropdown.value = graphic;
+	    aaDropdown.value = graphic;
+	    postProcessingDropdown.value = graphic;
+	    anisotropicDropdown.value = graphic;
+	    vSyncToggle.isOn = graphic > 1;
+	    HDRToggle.isOn = graphic > 2;
+	    general = false;
 	}
 
 	public void SetTextureQuality(int texture) {

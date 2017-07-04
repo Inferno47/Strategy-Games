@@ -1,11 +1,10 @@
 ﻿-Network Server v0.9:
-	- Client: Ok
-	- Serveur: Ok
-	- Dans le ManagerScene: NOk
+	- Client: OK
+	- Serveur: OK
 
--Menu v0.7:
-	- Main : Ok
-	- Multi : Ok
+-Menu v0.7.5:
+	- Main : OK
+	- Multi : OK
 	- Pause : OK
 	- Game : NOK
 	- MenuOption :
@@ -13,20 +12,20 @@
 		- Interface avec Game Settings pour les valeur: 11/11
 		- Mettre les script du menu option au propre: OK
 		- Interface pour commande: OK
-		- Design: NOK
+		- Design: En Cours
 
--GameSettings v0.7:
+-GameSettings v0.7.5:
 	- Save les valeurs dans un XML: 11/11
 	- Save les valeurs dans unity: 11/11
 	- Charger les valeurs depuis un XML: 11/11
 	- Charger les valeurs depuis unity: 9/9
-	- Dans toutes les Scene: OK
 
 -ManagerScene v0.5:
 	- LoadScene: OK
 	- UnloadScene: OK
 	- Canvas: OK
-	- GameSetting: OK	
+	- GameSetting: OK
+	- NetworkServer : NOK
 	
 -Configurer l'instanciation de StrategyGame: OK
 
