@@ -17,7 +17,8 @@ public class PauseMenuController : MonoBehaviour {
 	}
 
 	public void Play() {
-	}
+	    managerScene.UnLoadScene("PauseMenu");
+    }
 
 	public void Save() {
 	}
@@ -26,7 +27,10 @@ public class PauseMenuController : MonoBehaviour {
 		managerScene.LoadScene("SettingsMenu", LoadSceneMode.Additive);
 	}
 
-	public void Quit() {
-		managerScene.LoadScene("MainMenu", LoadSceneMode.Additive);
-	}
+	public void Quit()
+	{
+	    GameController  gameController = (GameController)GameObject.FindObjectOfType(typeof(GameController));
+        gameController.UnloadNetwork();
+        managerScene.LoadScene("MainMenu", LoadSceneMode.Additive);
+    }
 }

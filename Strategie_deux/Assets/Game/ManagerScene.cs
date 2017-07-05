@@ -24,10 +24,26 @@ public class ManagerScene : MonoBehaviour
 {
 	private List<Pair<Scene, string>> ListScene;
 	private GameSettings settings;
+    private ANetworkManager networkManager;
 	private string previousScene;
 
-	// Use this for initialization
-	void Start () {
+    public ANetworkManager NetworkManager
+    {
+        get
+        {
+            return networkManager;
+        }
+
+        set
+        {
+            if (networkManager != null)
+                Destroy(networkManager.gameObject);
+            networkManager = value;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		if (GameObject.FindObjectsOfType(typeof(ManagerScene)).Length > 1)
 			Destroy(this.gameObject);
 		DontDestroyOnLoad(this);
@@ -71,14 +87,15 @@ public class ManagerScene : MonoBehaviour
 
 	public void UnLoadScene(string name) {
 		int index = FindScene(name);
-		switch (index)
-		{
-		    case -1:
-		        return;
-		    case 0:
-		        LoadScene(previousScene, LoadSceneMode.Single);
-		        return;
-		}
+	    if (index == -1)
+	    {
+	        return;
+	    }
+	    else if (index == 0)
+	    {
+	        LoadScene(previousScene, LoadSceneMode.Single);
+	        return;
+	    }
 	    SceneManager.UnloadSceneAsync(name);
 		ListScene.RemoveAt(index);
 		if (index == 0)
@@ -100,16 +117,14 @@ public class ManagerScene : MonoBehaviour
 		ListScene.RemoveAt(index);
 	}
 
-	private int FindScene(string name)
-	{
+	private int FindScene(string name) {
 		for (int i = 0; i < ListScene.Count; i++)
 			if (ListScene[i].Second == name)
 				return i;
 		return -1;
 	}
 
-	private GameObject FindGameObjectByName(GameObject[] listGameObjects, string name)
-	{
+	private static GameObject FindGameObjectByName(IEnumerable<GameObject> listGameObjects, string name) {
 	    return listGameObjects.FirstOrDefault(tmp => tmp.name == name);
 	}
 

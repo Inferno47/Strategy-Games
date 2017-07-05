@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
-	private NetworkMenuController networkManager;
+	private ANetworkManager networkManager;
 	private List<PlayerController> playerCtrls;
 	private ManagerScene managerScene;
 	private bool Solo = false;
 
-	public NetworkMenuController NetworkManager
+	public ANetworkManager NetworkManager
 	{
 		get
 		{
@@ -50,13 +50,13 @@ public class GameController : MonoBehaviour {
 
 	private void LoadNetwork() {
 		if (GameObject.Find("MultiplayerObject") != null)
-			networkManager = GameObject.Find("MultiplayerObject").GetComponent<NetworkMenuController>();
+			networkManager = managerScene.NetworkManager;
 		else
 			Solo = true;
 	}
 
 	public void UnloadNetwork() {
 		if (Solo == false)
-			networkManager.Disconect();
-	}
+			networkManager.Disconnect();
+    }
 }

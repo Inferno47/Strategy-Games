@@ -65,6 +65,7 @@ public class NetworkMenuController : MonoBehaviour {
 		Manager.Address = Address;
 		Manager.Port = Port;
 		Manager.Connect();
+	    managerScene.NetworkManager = Manager;
 	}
 
 	public void Disconect () {
