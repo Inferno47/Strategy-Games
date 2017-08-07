@@ -1,4 +1,4 @@
-﻿-Network Server v0.9:
+﻿-Network Server v1.0:
 	- Client: OK
 	- Serveur: OK
 
@@ -29,6 +29,8 @@
 	
 -Configurer l'instanciation de StrategyGame: OK
 
--Crée les Spawners
--Faire le Post-Processing
--Faire le GameController
+Spawners v0:
+
+Post-Processing v0:
+
+GameController v0:

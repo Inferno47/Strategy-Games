@@ -42,6 +42,14 @@ public class ManagerScene : MonoBehaviour
         }
     }
 
+    public GameSettings Settings
+    {
+        get
+        {
+            return settings;
+        }
+    }
+
     // Use this for initialization
     void Start () {
 		if (GameObject.FindObjectsOfType(typeof(ManagerScene)).Length > 1)
@@ -57,10 +65,9 @@ public class ManagerScene : MonoBehaviour
 	void Update () {
 	}
 
-	public GameSettings GetSettings() {
-		return settings;
-	}
-
+    /// <summary>
+    /// System for load and unload Scene
+    /// </summary>
 	public void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
 		if (mode == LoadSceneMode.Single)
 		{
@@ -71,7 +78,6 @@ public class ManagerScene : MonoBehaviour
 			settings.ApplycCamera();
 		}
 		ListScene.Add(new Pair<Scene, string>(scene, scene.name));
-		Debug.Log(scene.name);
 	}
 
 	public void LoadScene(string name, LoadSceneMode mode) {
@@ -107,7 +113,7 @@ public class ManagerScene : MonoBehaviour
 	/// Warning: To start this function, all LoadScene() must be terminated
 	/// </summary>
 	private void LoadScenePrevious(int index) {
-		for (int i = ListScene.Count - 1; i > index; i--)
+		for (int i = ListScene.Count - 1; i > index; --i)
 			UnloadSceneByIndex(i);
 		EnableCanvas(index);
 	}
@@ -118,7 +124,7 @@ public class ManagerScene : MonoBehaviour
 	}
 
 	private int FindScene(string name) {
-		for (int i = 0; i < ListScene.Count; i++)
+		for (int i = 0; i < ListScene.Count; ++i)
 			if (ListScene[i].Second == name)
 				return i;
 		return -1;

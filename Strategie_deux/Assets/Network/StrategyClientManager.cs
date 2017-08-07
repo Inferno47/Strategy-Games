@@ -7,20 +7,24 @@ public class StrategyClientManager : ANetworkManager {
 
 	private NetworkClient client;
 
-
-	// Use this for initialization
-	void Start () {
-	}
+    // Use this for initialization
+    void Start () {
+		client = new NetworkClient();
+		client.RegisterHandler(MsgType.Connect, OnConnected);
+		client.RegisterHandler(MsgType.Disconnect, OnDisconnected);
+        client.RegisterHandler(msgServer, ReceiveMsgFromServer);
+    }
 
 	// Update is called once per frame
 	void Update () {
 	}
 
 	override public void Connect() {
-		client = new NetworkClient();
-		client.RegisterHandler(MsgType.Connect, OnConnected);
-		client.RegisterHandler(MsgType.Disconnect, OnDisconnected);
 		client.Connect(address, port);
+	}
+
+	public void ConnectToNewHost() {
+		client.ReconnectToNewHost(address, port);
 	}
 
 	override public void Disconnect() {
@@ -35,11 +39,29 @@ public class StrategyClientManager : ANetworkManager {
 		Debug.Log("Disconnected Successful !");
 	}
 
-	public void OnConnectedToServer() {
+    public void OnConnectedToServer() {
 		Debug.Log("Connected to server");
 	}
 
 	public void OnDisconnectedFromServer(NetworkDisconnection info) {
 		Debug.Log("Disconnected from server: " + info);
 	}
+
+	public string GetPing() {
+		return client.GetRTT() + " ms";
+	}
+
+    public void SendMsgToServer(string command, string info, int channelId)
+    {
+        MessageServer msg = new MessageServer();
+        msg.Command = command;
+        msg.info = info;
+        client.Send(msgServer, msg);
+    }
+
+    private void ReceiveMsgFromServer(NetworkMessage netMsg)
+    {
+        Debug.Log(netMsg);// Gere les demande Server
+    }
+
 }
