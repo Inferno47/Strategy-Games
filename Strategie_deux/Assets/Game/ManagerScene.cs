@@ -22,7 +22,7 @@ public class Pair<T, U>
 
 public class ManagerScene : MonoBehaviour
 {
-	private List<Pair<Scene, string>> ListScene;
+	private List<Pair<Scene, string>> listScene;
 	private GameSettings settings;
     private ANetworkManager networkManager;
 	private string previousScene;
@@ -56,7 +56,7 @@ public class ManagerScene : MonoBehaviour
 			Destroy(this.gameObject);
 		DontDestroyOnLoad(this);
 		SceneManager.sceneLoaded += OnSceneLoaded;
-	    ListScene = new List<Pair<Scene, string>> {new Pair<Scene, string>(SceneManager.GetActiveScene(), "MainMenu")};
+        listScene = new List<Pair<Scene, string>> {new Pair<Scene, string>(SceneManager.GetActiveScene(), "MainMenu")};
 	    settings = GameSettings.LoadSettings("Settings.xml");
 		settings.Apply();
 	}
@@ -71,18 +71,18 @@ public class ManagerScene : MonoBehaviour
 	public void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
 		if (mode == LoadSceneMode.Single)
 		{
-			previousScene = ListScene[0].Second;
-			ListScene.Clear();
+			previousScene = listScene[0].Second;
+            listScene.Clear();
 			FindGameObjectByName(scene.GetRootGameObjects(), "Main Camera").SetActive(true);
 			FindGameObjectByName(scene.GetRootGameObjects(), "EventSystem").SetActive(true);
 			settings.ApplycCamera();
 		}
-		ListScene.Add(new Pair<Scene, string>(scene, scene.name));
+        listScene.Add(new Pair<Scene, string>(scene, scene.name));
 	}
 
 	public void LoadScene(string name, LoadSceneMode mode) {
 		if (mode == LoadSceneMode.Additive)
-			DisableCanvas(ListScene.Count - 1);
+			DisableCanvas(listScene.Count - 1);
 		if (name == "MainMenu")
 			mode = LoadSceneMode.Single; 
 		if (FindScene(name) != -1)
@@ -103,7 +103,7 @@ public class ManagerScene : MonoBehaviour
 	        return;
 	    }
 	    SceneManager.UnloadSceneAsync(name);
-		ListScene.RemoveAt(index);
+        listScene.RemoveAt(index);
 		if (index == 0)
 			return;
 		EnableCanvas(index - 1);
@@ -113,19 +113,19 @@ public class ManagerScene : MonoBehaviour
 	/// Warning: To start this function, all LoadScene() must be terminated
 	/// </summary>
 	private void LoadScenePrevious(int index) {
-		for (int i = ListScene.Count - 1; i > index; --i)
+		for (int i = listScene.Count - 1; i > index; --i)
 			UnloadSceneByIndex(i);
 		EnableCanvas(index);
 	}
 
 	private void UnloadSceneByIndex(int index) {
-		SceneManager.UnloadSceneAsync(ListScene[index].Second);
-		ListScene.RemoveAt(index);
+		SceneManager.UnloadSceneAsync(listScene[index].Second);
+        listScene.RemoveAt(index);
 	}
 
 	private int FindScene(string name) {
-		for (int i = 0; i < ListScene.Count; ++i)
-			if (ListScene[i].Second == name)
+		for (int i = 0; i < listScene.Count; ++i)
+			if (listScene[i].Second == name)
 				return i;
 		return -1;
 	}
@@ -136,7 +136,7 @@ public class ManagerScene : MonoBehaviour
 
 	public GameObject FindGameObjectByScene(string scene, string name)  {
 		int indexScene = FindScene(scene);
-		return indexScene == -1 ? null : FindGameObjectByName(ListScene[indexScene].First.GetRootGameObjects(), name);
+		return indexScene == -1 ? null : FindGameObjectByName(listScene[indexScene].First.GetRootGameObjects(), name);
 	}
 
 	private void EnableCanvas(int index) {
@@ -153,9 +153,23 @@ public class ManagerScene : MonoBehaviour
 	}
 
 	private GameObject GetCanvas(int index) {
-		if (index < 0 && index >= ListScene.Count)
+		if (index < 0 && index >= listScene.Count)
 			return null;
-		GameObject[] listGameObjects = ListScene[index].First.GetRootGameObjects();
+		GameObject[] listGameObjects = listScene[index].First.GetRootGameObjects();
 		return FindGameObjectByName(listGameObjects, "Canvas");
 	}
+
+    /// <summary>
+    /// DEBUG Function
+    /// </summary>
+    public void DebugLog()
+    {
+        foreach (Pair<Scene, string> scene in listScene)
+            Debug.Log("Scene Name : " + scene.Second);
+        if (settings != null)
+            settings.DebugLog();
+        /*if (networkManager != null)
+            networkManager.DebuLog();*/
+        Debug.Log(previousScene);
+    }
 }

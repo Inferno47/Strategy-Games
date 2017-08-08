@@ -61,7 +61,6 @@ public class GameSettings
 	/// <summary>
 	/// Save Function
 	/// </summary>
-	/// <param name="Settings.xml"></param>
 	public void SaveSettings(string file) {
 		XmlSerializer serializer = new XmlSerializer(typeof(GameSettings));
 		FileStream stream = new FileStream(file, FileMode.Create);
@@ -72,8 +71,6 @@ public class GameSettings
 	/// <summary>
 	/// Load Function
 	/// </summary>
-	/// <param name="Settings.xml"></param>
-	/// <returns></returns>
 	public static GameSettings LoadSettings(string file) {
 		GameSettings settings;
 

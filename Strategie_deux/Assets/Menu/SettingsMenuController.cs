@@ -31,7 +31,7 @@ public class SettingsMenuController : MonoBehaviour {
 	void Start() {
 		CreateResolution();
 		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
-	    Settings = managerScene.GetSettings();
+	    Settings = managerScene.Settings;
 	    LoadUI();
     }
 

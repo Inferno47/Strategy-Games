@@ -59,4 +59,12 @@ abstract public class ANetworkManager : MonoBehaviour
     abstract public void Connect();
 
     abstract public void Disconnect();
+
+    public void DebugLog()
+    {
+        Debug.Log("Port : " + port);
+        Debug.Log("Address : " + address);
+        Debug.Log("Server ? " + port);
+        Debug.Log("TypeMessage : " + msgServer);
+    }
 }
