@@ -24,40 +24,40 @@ public class ManagerScene : MonoBehaviour
 {
 	private List<Pair<Scene, string>> listScene;
 	private GameSettings settings;
-    private ANetworkManager networkManager;
+	private ANetworkManager networkManager;
 	private string previousScene;
 
-    public ANetworkManager NetworkManager
-    {
-        get
-        {
-            return networkManager;
-        }
+	public ANetworkManager NetworkManager
+	{
+		get
+		{
+			return networkManager;
+		}
 
-        set
-        {
-            if (networkManager != null)
-                Destroy(networkManager.gameObject);
-            networkManager = value;
-        }
-    }
+		set
+		{
+			if (networkManager != null)
+				Destroy(networkManager.gameObject);
+			networkManager = value;
+		}
+	}
 
-    public GameSettings Settings
-    {
-        get
-        {
-            return settings;
-        }
-    }
+	public GameSettings Settings
+	{
+		get
+		{
+			return settings;
+		}
+	}
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
 		if (GameObject.FindObjectsOfType(typeof(ManagerScene)).Length > 1)
 			Destroy(this.gameObject);
 		DontDestroyOnLoad(this);
 		SceneManager.sceneLoaded += OnSceneLoaded;
-        listScene = new List<Pair<Scene, string>> {new Pair<Scene, string>(SceneManager.GetActiveScene(), "MainMenu")};
-	    settings = GameSettings.LoadSettings("Settings.xml");
+		listScene = new List<Pair<Scene, string>> {new Pair<Scene, string>(SceneManager.GetActiveScene(), "MainMenu")};
+		settings = GameSettings.LoadSettings("Settings.xml");
 		settings.Apply();
 	}
 	
@@ -65,19 +65,19 @@ public class ManagerScene : MonoBehaviour
 	void Update () {
 	}
 
-    /// <summary>
-    /// System for load and unload Scene
-    /// </summary>
+	/// <summary>
+	/// System for load and unload Scene
+	/// </summary>
 	public void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
 		if (mode == LoadSceneMode.Single)
 		{
 			previousScene = listScene[0].Second;
-            listScene.Clear();
+			listScene.Clear();
 			FindGameObjectByName(scene.GetRootGameObjects(), "Main Camera").SetActive(true);
 			FindGameObjectByName(scene.GetRootGameObjects(), "EventSystem").SetActive(true);
 			settings.ApplycCamera();
 		}
-        listScene.Add(new Pair<Scene, string>(scene, scene.name));
+		listScene.Add(new Pair<Scene, string>(scene, scene.name));
 	}
 
 	public void LoadScene(string name, LoadSceneMode mode) {
@@ -93,17 +93,17 @@ public class ManagerScene : MonoBehaviour
 
 	public void UnLoadScene(string name) {
 		int index = FindScene(name);
-	    if (index == -1)
-	    {
-	        return;
-	    }
-	    else if (index == 0)
-	    {
-	        LoadScene(previousScene, LoadSceneMode.Single);
-	        return;
-	    }
-	    SceneManager.UnloadSceneAsync(name);
-        listScene.RemoveAt(index);
+		if (index == -1)
+		{
+			return;
+		}
+		else if (index == 0)
+		{
+			LoadScene(previousScene, LoadSceneMode.Single);
+			return;
+		}
+		SceneManager.UnloadSceneAsync(name);
+		listScene.RemoveAt(index);
 		if (index == 0)
 			return;
 		EnableCanvas(index - 1);
@@ -120,7 +120,7 @@ public class ManagerScene : MonoBehaviour
 
 	private void UnloadSceneByIndex(int index) {
 		SceneManager.UnloadSceneAsync(listScene[index].Second);
-        listScene.RemoveAt(index);
+		listScene.RemoveAt(index);
 	}
 
 	private int FindScene(string name) {
@@ -131,7 +131,7 @@ public class ManagerScene : MonoBehaviour
 	}
 
 	private static GameObject FindGameObjectByName(IEnumerable<GameObject> listGameObjects, string name) {
-	    return listGameObjects.FirstOrDefault(tmp => tmp.name == name);
+		return listGameObjects.FirstOrDefault(tmp => tmp.name == name);
 	}
 
 	public GameObject FindGameObjectByScene(string scene, string name)  {
@@ -159,17 +159,17 @@ public class ManagerScene : MonoBehaviour
 		return FindGameObjectByName(listGameObjects, "Canvas");
 	}
 
-    /// <summary>
-    /// DEBUG Function
-    /// </summary>
-    public void DebugLog()
-    {
-        foreach (Pair<Scene, string> scene in listScene)
-            Debug.Log("Scene Name : " + scene.Second);
-        if (settings != null)
-            settings.DebugLog();
-        /*if (networkManager != null)
-            networkManager.DebuLog();*/
-        Debug.Log(previousScene);
-    }
+	/// <summary>
+	/// DEBUG Function
+	/// </summary>
+	public void DebugLog()
+	{
+		foreach (Pair<Scene, string> scene in listScene)
+			Debug.Log("Scene Name : " + scene.Second);
+		if (settings != null)
+			settings.DebugLog();
+		/*if (networkManager != null)
+			networkManager.DebuLog();*/
+		Debug.Log(previousScene);
+	}
 }

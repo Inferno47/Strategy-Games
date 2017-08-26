@@ -2,7 +2,7 @@
 	- Client: OK
 	- Serveur: OK
 
--Menu v0.7.5:
+-Menu v0.8:
 	- Main : OK
 	- Multi : OK
 	- Pause : OK
@@ -12,7 +12,7 @@
 		- Interface avec Game Settings pour les valeur: 11/11
 		- Mettre les script du menu option au propre: OK
 		- Interface pour commande: OK
-		- Design: En Cours
+		- Design: OK
 
 -GameSettings v0.7.5:
 	- Save les valeurs dans un XML: 11/11
