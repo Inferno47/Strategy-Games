@@ -2,6 +2,8 @@
 	- Client: OK
 	- Serveur: OK
 
+-ManagerMessage v0:
+
 -Menu v0.8:
 	- Main : OK
 	- Multi : OK

@@ -55,21 +55,22 @@ public class StrategyServerManager : ANetworkManager {
                 players.RemoveAt(i);
     }
 
-    public void SendMsgToClient(int client, string command, string info) {
-        MessageServer msg = new MessageServer();
-        msg.Command = command;
-        msg.info = info;
+    public void SendMsgToClient(int client, MessageBase msg) {
         NetworkServer.SendToClient(client, msgServer, msg);
     }
 
-    public void SendMsgToAllClient(int client, string command, string info) {
-        MessageServer msg = new MessageServer();
-        msg.Command = command;
-        msg.info = info;
+    public void SendMsgToAllClient(int client, MessageBase msg) {
         NetworkServer.SendToAll(msgServer, msg);
     }
 
     public void ReceiveMsgFromClient(NetworkMessage netMsg) {
-        Debug.Log(netMsg);
+        listMessage.Add(netMsg);
+    }
+
+    public NetworkMessage GetReceiveMsgFromClient()
+    {
+        NetworkMessage netMsg = listMessage[0];
+        listMessage.RemoveAt(0);
+        return netMsg;
     }
 }

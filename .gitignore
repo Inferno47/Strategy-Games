@@ -1,15 +1,14 @@
 # =============== #
 # Unity generated #
 # =============== #
-Strategie_deux/Temp/
-Strategie_deux/Obj/
-Strategie_deux/Build/
-Strategie_deux/build/
-Strategie_deux/builds/
-Strategie_deux/Builds/
-Strategie_deux/Library/
-Strategie_deux/UnityGenerated/
-Strategie_deux/Assets/AssetStoreTools*
+**/Temp
+**/Obj
+**/Build
+**/build
+**/Library
+**/library
+**/UnityGenerated
+**/Assets/AssetStoreTools*
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #

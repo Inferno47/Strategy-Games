@@ -42,6 +42,8 @@ public class GameController : MonoBehaviour {
 		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
 		LoadNetwork();
 		managerScene.LoadScene("PauseMenu", LoadSceneMode.Additive);
+        SpawnServer server = gameObject.AddComponent<SpawnServer>();
+        //SpawnClient client = gameObject.AddComponent<SpawnClient>();
 	}
 
 	// Update is called once per frame

@@ -8,7 +8,7 @@ public class StrategyClientManager : ANetworkManager {
 	private NetworkClient client;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
 		client = new NetworkClient();
 		client.RegisterHandler(MsgType.Connect, OnConnected);
 		client.RegisterHandler(MsgType.Disconnect, OnDisconnected);
@@ -20,7 +20,7 @@ public class StrategyClientManager : ANetworkManager {
 	}
 
 	override public void Connect() {
-		client.Connect(address, port);
+        client.Connect(address, port);
 	}
 
 	public void ConnectToNewHost() {
@@ -51,17 +51,18 @@ public class StrategyClientManager : ANetworkManager {
 		return client.GetRTT() + " ms";
 	}
 
-    public void SendMsgToServer(string command, string info, int channelId)
-    {
-        MessageServer msg = new MessageServer();
-        msg.Command = command;
-        msg.info = info;
+    public void SendMsgToServer(MessageBase msg, int channelId) {
         client.Send(msgServer, msg);
     }
 
-    private void ReceiveMsgFromServer(NetworkMessage netMsg)
-    {
-        Debug.Log(netMsg);// Gere les demande Server
+    private void ReceiveMsgFromServer(NetworkMessage netMsg) {
+        listMessage.Add(netMsg);
+    }
+
+    public NetworkMessage GetReceiveMsgFromServer() {
+        NetworkMessage netMsg = listMessage[0];
+        listMessage.RemoveAt(0);
+        return netMsg;
     }
 
 }

@@ -30,7 +30,7 @@ public class SettingsMenuController : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		CreateResolution();
-		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
+		managerScene = (ManagerScene)FindObjectOfType(typeof(ManagerScene));
 		if (managerScene != null)
 		{
 			Settings = managerScene.Settings;
@@ -49,19 +49,19 @@ public class SettingsMenuController : MonoBehaviour {
 
 		foreach (Resolution resolution in resolutions)
 		{
-			if ((resolution.height != Previous.height) || (resolution.width != Previous.width))
-				resolutionDropdown.options.Add(new Dropdown.OptionData(resolution.ToString()));
+            if ((resolution.height != Previous.height) || (resolution.width != Previous.width))
+                resolutionDropdown.options.Add(new Dropdown.OptionData(resolution.ToString()));
 			Previous = resolution;
 		}
 	}
 
 	public void LoadUI() {	
 		general = true;
-		fullScreenToggle.isOn = Settings.fullScreen;
 		vSyncToggle.isOn = Settings.vSync;
-		HDRToggle.isOn = Settings.HDR;
-		resolutionDropdown.value = Settings.resolutionIndex;
-		textureDropdown.value = Settings.texturesQuality;
+        HDRToggle.isOn = Settings.HDR;
+        resolutionDropdown.value = Settings.resolutionIndex;
+        fullScreenToggle.isOn = Settings.fullScreen;
+        textureDropdown.value = Settings.texturesQuality;
 		shadowDropdown.value = Settings.shadowQuality;
 		postProcessingDropdown.value = Settings.postProcessing;
 		bufferDropdown.value = Settings.buffer;
@@ -69,7 +69,7 @@ public class SettingsMenuController : MonoBehaviour {
 		anisotropicDropdown.value = Settings.anisotropic;
 		aaDropdown.value = Settings.antiAliasing;
 		graphicDropdown.value = Settings.graphicQuality;
-		resolutionDropdown.RefreshShownValue();
+        resolutionDropdown.RefreshShownValue();
 		general = false;
 	}
 
@@ -123,9 +123,11 @@ public class SettingsMenuController : MonoBehaviour {
 	}
 
 	public void SetGraphicQuality(int graphic) {
-		Settings.graphicQuality = graphic;
-		if (graphic >= 4) return;
-		general = true;
+        Settings.graphicQuality = graphic;
+        if (graphic >= 4)
+            return;
+
+        general = true;
 		textureDropdown.value = graphic;
 		shadowDropdown.value = graphic;
 		aaDropdown.value = graphic;
@@ -146,8 +148,7 @@ public class SettingsMenuController : MonoBehaviour {
 		ModeCustom();
 	}
 
-	public void SetAA(int aa)
-	{
+	public void SetAA(int aa) {
 		Settings.antiAliasing = aa;
 		ModeCustom();
 	}
@@ -158,13 +159,12 @@ public class SettingsMenuController : MonoBehaviour {
 		ModeCustom();
 	}
 
-	public void SetMethodAntiAliasing(int methodAntiAliasing)
-	{
+	public void SetMethodAntiAliasing(int methodAntiAliasing) {
 		Settings.methodAntiAliasing = methodAntiAliasing;
 		ModeCustom();
 	}
-	public void SetBuffer(int buffer)
-	{
+
+	public void SetBuffer(int buffer) {
 		Settings.buffer = buffer;
 		ModeCustom();
 	}
@@ -173,4 +173,23 @@ public class SettingsMenuController : MonoBehaviour {
 		Settings.anisotropic = anisotropic;
 		ModeCustom();
 	}
+    public void DebugLog()
+    {
+        Debug.Log("SettingsMenu");
+        Debug.Log("general = " + general);
+        Debug.Log("vSyncToggle.isOn = " + vSyncToggle.isOn);
+        Debug.Log("HDRToggle.isOn = " + HDRToggle.isOn);
+        Debug.Log("resolutionDropdown.value = " + resolutionDropdown.value);
+        Debug.Log("fullScreenToggle.isOn = " + fullScreenToggle.isOn);
+        Debug.Log("textureDropdown.value = " + textureDropdown.value);
+        Debug.Log("shadowDropdown.value = " + shadowDropdown.value);
+        Debug.Log("postProcessingDropdown.value = " + postProcessingDropdown.value);
+        Debug.Log("bufferDropdown.value = " + bufferDropdown.value);
+        Debug.Log("methodAntiAliasingDropdown.value " + methodAntiAliasingDropdown.value);
+        Debug.Log("anisotropicDropdown.value = " + anisotropicDropdown.value);
+        Debug.Log("aaDropdown.value = " + aaDropdown.value);
+        Debug.Log("graphicDropdown.value = " + graphicDropdown.value);
+        foreach(Resolution res in resolutions)
+            Debug.Log("resolution (" + res.ToString() + ")");
+    }
 }

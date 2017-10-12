@@ -9,6 +9,13 @@ public class MessageServer : MessageBase
     public string info;
 }
 
+public class MessageIdObject : MessageBase
+{
+    public NetworkHash128 Command;
+    public string info;
+}
+
+
 
 abstract public class ANetworkManager : MonoBehaviour
 {
@@ -16,6 +23,7 @@ abstract public class ANetworkManager : MonoBehaviour
     protected bool isServer = true;
     protected string address = "127.0.0.1";
     protected short msgServer = MsgType.Highest + 1;
+    protected List<NetworkMessage> listMessage;
 
     public int Port
     {
