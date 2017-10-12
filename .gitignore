@@ -13,8 +13,8 @@
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
-/.vs
 ExportedObj/
+*.vs
 *.csproj
 *.unityproj
 *.sln
@@ -27,21 +27,22 @@ ExportedObj/
 *.svd
 
 # Builds
-
 *.apk
 *.unitypackage
+*.stackdump
 
 # ============ #
 # OS generated #
 # ============ #
-.DS_Store
-.DS_Store?
+.DS_Store*
 ._*
 .Spotlight-V100
 .Trashes
 Icon?
 ehthumbs.db
 Thumbs.dbs
+**/Library/metadata
+**/Library/ShaderCache
 
 
 # Unity3D generated meta files
