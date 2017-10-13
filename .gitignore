@@ -52,3 +52,5 @@ Thumbs.dbs
 sysinfo.txt
 
 *.lock
+
+*.bak
