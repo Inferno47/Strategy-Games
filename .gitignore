@@ -14,7 +14,7 @@
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
 ExportedObj/
-*.vs
+**/.vs
 *.csproj
 *.unityproj
 *.sln
