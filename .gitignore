@@ -1,13 +1,13 @@
 # =============== #
 # Unity generated #
 # =============== #
-**/Temp
-**/Obj
-**/Build
-**/build
-**/Library
-**/library
-**/UnityGenerated
+**/Temp/
+**/Obj/
+**/Build/
+**/build/
+**/Library/
+**/library/
+**/UnityGenerated/
 **/Assets/AssetStoreTools*
 
 # ===================================== #
