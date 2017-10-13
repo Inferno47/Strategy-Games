@@ -20,13 +20,13 @@ public class SpawnClient : MonoBehaviour {
         spawnManager.SetTypeIdToObjectPool(typeIdList);
     }
 
+    // Update is called once per frame
+    void Update() {
+    }
+
     private void ReceiveIdListFromServer(int nb) {
         for (int i = 0; i < nb; ++i) {
             typeIdList.Add(clientManager.GetReceiveMsgFromServer().ReadMessage<MessageIdObject>().Command);
         }
     }
-
-    // Update is called once per frame
-    void Update () {
-	}
 }

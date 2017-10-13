@@ -18,6 +18,10 @@ public class SpawnManager : MonoBehaviour {
     void Start () {
     }
 
+    // Update is called once per frame
+    void Update() {
+    }
+
     public void SetTypeIdToObjectPool(List<NetworkHash128> listId) {
         for (int i = 0; i < listId.Count && i < ObjectPool.Count; ++i)
             ObjectPool[i].Second = listId[i];

@@ -26,6 +26,10 @@ public class SpawnServer : NetworkBehaviour {
         SendIdListToClient();
     }
 
+    // Update is called once per frame
+    void Update() {
+    }
+
     private void SendIdListToClient() {
         foreach (NetworkHash128 typeId in typeIdList) {
             MessageIdObject msg = new MessageIdObject();
@@ -35,10 +39,6 @@ public class SpawnServer : NetworkBehaviour {
             Debug.Log("sent " + typeId.ToString() + " typeId");
         }
     }
-
-	// Update is called once per frame
-	void Update () {
-	}
 
     [Command]
     public void CmdObject(string objectName) {
