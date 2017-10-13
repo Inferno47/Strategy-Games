@@ -5,10 +5,10 @@ using UnityEngine.Networking;
 
 public class StrategyServerManager : ANetworkManager {
 
-    List<NetworkPlayer> players = null;
+    protected List<NetworkPlayer> players = null;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         players = new List<NetworkPlayer>();
     }
 
@@ -59,7 +59,7 @@ public class StrategyServerManager : ANetworkManager {
         NetworkServer.SendToClient(client, msgServer, msg);
     }
 
-    public void SendMsgToAllClient(int client, MessageBase msg) {
+    public void SendMsgToAllClient(MessageBase msg) {
         NetworkServer.SendToAll(msgServer, msg);
     }
 
