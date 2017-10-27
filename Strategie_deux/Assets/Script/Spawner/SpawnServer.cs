@@ -16,10 +16,10 @@ public class SpawnServer : NetworkBehaviour {
         spawnManager = new SpawnManager();
         ManagerScene managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
         serverManager = (StrategyServerManager)managerScene.NetworkManager;
-        List<Pair<GameObject, NetworkHash128>> objectPool = spawnManager.ObjectPool;
+        List<NetworkObject> objectPool = spawnManager.ObjectPool;
         NetworkHash128 typeId;
-        foreach(Pair<GameObject, NetworkHash128> obj in objectPool) {
-            typeId = NetworkHash128.Parse(obj.First.name);
+        foreach(NetworkObject obj in objectPool) {
+            typeId = NetworkHash128.Parse(obj._object.name);
             typeIdList.Add(typeId);
         }
         spawnManager.SetTypeIdToObjectPool(typeIdList);

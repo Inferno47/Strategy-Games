@@ -4,15 +4,25 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
+[System.Serializable]
+public class NetworkObject
+{
+    public NetworkHash128 Id { get; set; }
+
+    public GameObject _object;
+
+    public int AnInt = 10;
+}
+
 public class SpawnManager : MonoBehaviour {
 
     [SerializeField]
-	private List<Pair<GameObject, NetworkHash128>> objectPool;
+    private List<NetworkObject> objectPool = new List<NetworkObject>(1);
+
+    public List<NetworkObject> ObjectPool { get { return objectPool; } }
 
     public delegate GameObject SpawnDelegate(Vector3 position, NetworkHash128 objectId);
 	public delegate void UnSpawnDelegate(GameObject objectSpawned);
-
-    public List<Pair<GameObject, NetworkHash128>> ObjectPool { get { return objectPool; } }
 
     // Use this for initialization
     void Start () {
@@ -23,25 +33,25 @@ public class SpawnManager : MonoBehaviour {
     }
 
     public void SetTypeIdToObjectPool(List<NetworkHash128> listId) {
-        for (int i = 0; i < listId.Count && i < ObjectPool.Count; ++i)
-            ObjectPool[i].Second = listId[i];
+        for (int i = 0; i < listId.Count && i < objectPool.Count; ++i)
+            objectPool[i].Id = listId[i];
     }
 
     public void SetSpawnHandler() {
-        foreach (Pair<GameObject, NetworkHash128> element in ObjectPool)
-            ClientScene.RegisterSpawnHandler(element.Second, SpawnObject, UnSpawnObject);
+        foreach (NetworkObject element in objectPool)
+            ClientScene.RegisterSpawnHandler(element.Id, SpawnObject, UnSpawnObject);
     }
 
     public GameObject GetPrefab(string name) {
-        return ObjectPool.ToArray().FirstOrDefault(tmp => tmp.First.name == name).First;
+        return objectPool.ToArray().FirstOrDefault(tmp => tmp._object.name == name)._object;
     }
 
     public NetworkHash128 GetTypeId(GameObject go) {
-        return ObjectPool.ToArray().FirstOrDefault(tmp => tmp.First == go).Second;
+        return objectPool.ToArray().FirstOrDefault(tmp => tmp._object == go).Id;
     }
 	
 	private GameObject GetFromPool (NetworkHash128 id) {
-        return ObjectPool.ToArray().FirstOrDefault(tmp => tmp.First.GetComponent<NetworkIdentity>().Equals(id)).First;
+        return objectPool .ToArray().FirstOrDefault(tmp => tmp._object.GetComponent<NetworkIdentity>().Equals(id))._object;
 	}
 
 	public GameObject SpawnObject(Vector3 position, NetworkHash128 typeId) {

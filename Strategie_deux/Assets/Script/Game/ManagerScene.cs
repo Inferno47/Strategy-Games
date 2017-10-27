@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 public class Pair<T, U>
 {
@@ -17,6 +19,7 @@ public class Pair<T, U>
 	}
 
 	public T First { get; set; }
+
 	public U Second { get; set; }
 };
 
