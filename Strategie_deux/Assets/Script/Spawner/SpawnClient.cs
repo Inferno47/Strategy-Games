@@ -5,16 +5,20 @@ using UnityEngine.Networking;
 
 public class SpawnClient : MonoBehaviour {
 
-    List<NetworkHash128> typeIdList;
     SpawnManager spawnManager;
+    ManagerScene managerScene;
+    List<NetworkHash128> typeIdList;
     StrategyClientManager clientManager;
+
+    void Awake() {
+        typeIdList = new List<NetworkHash128>();
+        spawnManager = new SpawnManager();
+        managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
+        clientManager = (StrategyClientManager)managerScene.NetworkManager;
+    }
 
     // Use this for initialization
     void Start () {
-        typeIdList = new List<NetworkHash128>();
-        ManagerScene managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
-        clientManager = (StrategyClientManager)managerScene.NetworkManager;
-        spawnManager = new SpawnManager();
         int nb = spawnManager.ObjectPool.Count;
         ReceiveIdListFromServer(nb);
         spawnManager.SetTypeIdToObjectPool(typeIdList);

@@ -6,24 +6,28 @@ using UnityEngine.Networking;
 
 public class SpawnServer : NetworkBehaviour {
 
-    List<NetworkHash128> typeIdList;
     SpawnManager spawnManager;
+    ManagerScene managerScene;
+    List<NetworkHash128> typeIdList;
     StrategyServerManager serverManager;
 
-	// Use this for initialization
-	void Start () {
+    void Awake() {
         typeIdList = new List<NetworkHash128>();
         spawnManager = new SpawnManager();
-        ManagerScene managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
+        managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
         serverManager = (StrategyServerManager)managerScene.NetworkManager;
+    }
+
+    // Use this for initialization
+    void Start () {
         List<NetworkObject> objectPool = spawnManager.ObjectPool;
-        NetworkHash128 typeId;
+
         foreach(NetworkObject obj in objectPool) {
-            typeId = NetworkHash128.Parse(obj._object.name);
+            NetworkHash128 typeId = NetworkHash128.Parse(obj._object.name);
             typeIdList.Add(typeId);
         }
+
         spawnManager.SetTypeIdToObjectPool(typeIdList);
-        SendIdListToClient();
     }
 
     // Update is called once per frame
@@ -35,14 +39,14 @@ public class SpawnServer : NetworkBehaviour {
             MessageIdObject msg = new MessageIdObject();
             msg.Command = typeId;
             msg.info = "typeId";
-            serverManager.SendMsgToClient(connectionToClient.connectionId, msg);
+            serverManager.SendMsgToClient(connectionToClient.connectionId, msg); // chopper la connection client
             Debug.Log("sent " + typeId.ToString() + " typeId");
-        }
+        } 
     }
 
     [Command]
     public void CmdObject(string objectName) {
         GameObject go = spawnManager.SpawnObject(new Vector3(0, 0, 0), objectName);
-        NetworkServer.SpawnWithClientAuthority(go, spawnManager.GetTypeId(go), connectionToClient); // chopper la conn<
+        NetworkServer.SpawnWithClientAuthority(go, spawnManager.GetTypeId(go), connectionToClient); // chopper la connection client
     }
 }

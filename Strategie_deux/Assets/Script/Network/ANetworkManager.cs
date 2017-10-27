@@ -3,20 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class MessageServer : MessageBase
-{
-    public string Command;
-    public string info;
-}
-
-public class MessageIdObject : MessageBase
-{
-    public NetworkHash128 Command;
-    public string info;
-}
-
-
-
 abstract public class ANetworkManager : MonoBehaviour
 {
     protected int port = 4444;
