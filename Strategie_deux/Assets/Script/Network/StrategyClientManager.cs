@@ -27,7 +27,12 @@ public class StrategyClientManager : ANetworkManager {
 		client.ReconnectToNewHost(address, port);
 	}
 
-	override public void Disconnect() {
+    public bool IsConnected()
+    {
+        return client.isConnected;
+    }
+
+    override public void Disconnect() {
 		client.Disconnect();
 	}
 
@@ -51,7 +56,7 @@ public class StrategyClientManager : ANetworkManager {
 		return client.GetRTT() + " ms";
 	}
 
-    public void SendMsgToServer(MessageBase msg, int channelId) {
+    public void SendMsgToServer(MessageBase msg) {
         client.Send(msgServer, msg);
     }
 

@@ -10,8 +10,6 @@ public class NetworkObject
     public NetworkHash128 Id { get; set; }
 
     public GameObject _object;
-
-    public int AnInt = 10;
 }
 
 public class SpawnManager : MonoBehaviour {
@@ -51,7 +49,7 @@ public class SpawnManager : MonoBehaviour {
     }
 	
 	private GameObject GetFromPool (NetworkHash128 id) {
-        return objectPool .ToArray().FirstOrDefault(tmp => tmp._object.GetComponent<NetworkIdentity>().Equals(id))._object;
+        return objectPool.ToArray().FirstOrDefault(tmp => tmp._object.GetComponent<NetworkIdentity>().Equals(id))._object;
 	}
 
 	public GameObject SpawnObject(Vector3 position, NetworkHash128 typeId) {

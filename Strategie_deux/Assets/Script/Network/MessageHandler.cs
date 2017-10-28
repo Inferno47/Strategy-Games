@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 /*
- * Add New Player
- * List NetworkHash128
- * Move Unit
- * Add/Delete Unit
- * Add/Delete Building
- * Ressource
- * Syncronisation
- * Disconnect Player
+ * Connection Client : MsgType.Connect OK
+ * Add New Player : MsgType.AddPlayer
+ * List NetworkHash128 : MsgType.Highest + 0
+ * Ressource : MsgType.Highest + 1
+ * Add/Delete Building : MsgType.Highest + 2
+ * Add/Delete Unit : MsgType.Highest + 3
+ * Move Unit : MsgType.Highest + 4
+ * Syncronisation : MsgType.Highest + 5
+ * Disconnect Player : MsgType.RemovePlayer
+ * Disconnect Client : MsgType.Disconnect OK
  */
 
 public class MessageServer : MessageBase
@@ -22,15 +24,15 @@ public class MessageServer : MessageBase
 
 public class MessageIdObject : MessageBase //msgServer + 0;
 {
-    public NetworkHash128 Command;
+    public NetworkHash128 TypeId;
     public string info;
 }
 
-public class MessageListIdObject : MessageBase //msgServer + 0;
+/*public class MessageListIdObject : MessageBase //msgServer + 0;
 {
     public List<NetworkHash128> Command;
     public string info;
-}
+}*/
 
 public class MessageRessource : MessageBase //msgServer + 1;
 {
@@ -48,7 +50,7 @@ public class MessageUnit : MessageBase //msgServer + 2 or + 3;
 public class MessageHandler : MonoBehaviour {
 
     protected short msgServer = MsgType.Highest + 1;
-
+    
     // Use this for initialization
     void Start() {
     }
@@ -64,17 +66,36 @@ public class MessageHandler : MonoBehaviour {
         return msg;
     }*/
 
-    public List<MessageBase> ListId(List<NetworkHash128> typeIdList)
-    {
+    public List<MessageBase> ListId(List<NetworkHash128> typeIdList) {
         List<MessageBase> listMsg = new List<MessageBase>();
 
-        foreach (NetworkHash128 typeId in typeIdList)
-        {
-            MessageIdObject msg = new MessageIdObject();
-            msg.Command = typeId;
-            msg.info = "typeId";
+        foreach (NetworkHash128 typeId in typeIdList) {
+            MessageIdObject msg = new MessageIdObject()
+            {
+                TypeId = typeId,
+                info = "typeId"
+            };
             listMsg.Add(msg);
         }
         return listMsg;
+    }
+
+    public MessageBase Resource(int metal, int cristal, int gaz) {
+        MessageRessource msg = new MessageRessource
+        {
+            Metal = metal,
+            Cristal = cristal,
+            Gaz = gaz
+        };
+        return msg;
+    }
+
+    public MessageBase Unit(Transform position, int idUnit) {
+        MessageUnit msg = new MessageUnit
+        {
+            Position = position,
+            IdUnit = idUnit
+        };
+        return msg;
     }
 }

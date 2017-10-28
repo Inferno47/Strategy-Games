@@ -37,7 +37,7 @@ public class SpawnServer : NetworkBehaviour {
     private void SendIdListToClient() {
         foreach (NetworkHash128 typeId in typeIdList) {
             MessageIdObject msg = new MessageIdObject();
-            msg.Command = typeId;
+            msg.TypeId = typeId;
             msg.info = "typeId";
             serverManager.SendMsgToClient(connectionToClient.connectionId, msg); // chopper la connection client
             Debug.Log("sent " + typeId.ToString() + " typeId");

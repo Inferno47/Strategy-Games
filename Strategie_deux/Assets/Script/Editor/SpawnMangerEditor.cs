@@ -8,13 +8,11 @@ using UnityEngine.Networking;
 [CanEditMultipleObjects]
 public class SpawnMangerEditor : Editor
 {
-    private SpawnManager spawnManager;
     private SerializedProperty List;
     private int ListSize;
     private GUIStyle style;
 
     void OnEnable() {
-        spawnManager = (SpawnManager)target;
         List = serializedObject.FindProperty("objectPool");
 
         style = new GUIStyle();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
 public class GameController : MonoBehaviour {
 
@@ -41,8 +42,16 @@ public class GameController : MonoBehaviour {
 		playerCtrls = new List<PlayerController>();
 		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
 		LoadNetwork();
-		managerScene.LoadScene("PauseMenu", LoadSceneMode.Additive);
-        SpawnServer server = gameObject.AddComponent<SpawnServer>();
+        MessageServer msg = new MessageServer()
+        {
+            Command = "",
+            info = ""
+        };
+        /*if (Solo == false && networkManager.GetType() == System.Type.GetType("StrategyClientManager"))
+            ClientScene.AddPlayer(0);*/
+
+        managerScene.LoadScene("PauseMenu", LoadSceneMode.Additive);
+        //SpawnServer server = gameObject.AddComponent<SpawnServer>();
         //SpawnClient client = gameObject.AddComponent<SpawnClient>();
 	}
 

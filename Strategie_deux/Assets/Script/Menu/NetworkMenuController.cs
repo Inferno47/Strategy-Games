@@ -48,8 +48,7 @@ public class NetworkMenuController : MonoBehaviour {
 
 	public void Valider () {
 		Debug.Log("Starting up !");
-		SetUpNetworkManager();
-		managerScene.LoadScene("StrategyGame", LoadSceneMode.Additive);
+        StartCoroutine(SetUpNetworkManager());
 	}
 	
 	public void Return () {
@@ -57,7 +56,7 @@ public class NetworkMenuController : MonoBehaviour {
 		Destroy(this.gameObject);
 	}
 
-	public void SetUpNetworkManager () {
+	public IEnumerator SetUpNetworkManager () {
 		if (isServer)
 			Manager = gameObject.AddComponent<StrategyServerManager>();
 		else
@@ -65,11 +64,33 @@ public class NetworkMenuController : MonoBehaviour {
 		Manager.Address = Address;
 		Manager.Port = Port;
 		Manager.Connect();
-	    managerScene.NetworkManager = Manager;
-	}
+        managerScene.NetworkManager = Manager;
+        if (!isServer)
+            yield return new WaitForConnected((StrategyClientManager)Manager);
+        managerScene.LoadScene("StrategyGame", LoadSceneMode.Additive);
+    }
 
 	public void Disconect () {
 		Manager.Disconnect();
 		Destroy(this.gameObject);
 	}
+}
+
+public class WaitForConnected : CustomYieldInstruction
+{
+    private StrategyClientManager Manager;
+
+    public override bool keepWaiting
+    {
+        get
+        {
+            return !Manager.IsConnected();
+        }
+    }
+
+    public WaitForConnected(StrategyClientManager manager)
+    {
+        Manager = manager;
+        Debug.Log("Waiting Connection!");
+    }
 }

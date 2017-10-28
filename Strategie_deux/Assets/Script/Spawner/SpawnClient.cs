@@ -30,7 +30,7 @@ public class SpawnClient : MonoBehaviour {
 
     private void ReceiveIdListFromServer(int nb) {
         for (int i = 0; i < nb; ++i) {
-            typeIdList.Add(clientManager.GetReceiveMsgFromServer().ReadMessage<MessageIdObject>().Command);
+            typeIdList.Add(clientManager.GetReceiveMsgFromServer().ReadMessage<MessageIdObject>().TypeId);
         }
     }
 }
