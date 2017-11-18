@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class StrategyServerManager : ANetworkManager {
 
-    protected List<NetworkPlayer> players = null;
-
     // Use this for initialization
     void Awake () {
-        players = new List<NetworkPlayer>();
     }
 
     // Update is called once per frame
@@ -20,6 +18,10 @@ public class StrategyServerManager : ANetworkManager {
         NetworkServer.Listen(Port);
         NetworkServer.RegisterHandler(MsgType.Connect, OnClientConnected);
         NetworkServer.RegisterHandler(MsgType.Disconnect, OnClientDisconnected);
+        NetworkServer.RegisterHandler(MsgType.AddPlayer, AddPlayer);
+        NetworkServer.RegisterHandler(MsgType.RemovePlayer, RemovePlayer);
+        NetworkServer.RegisterHandler(MsgType.Ready, RemovePlayer);
+        NetworkServer.RegisterHandler(MsgType.NotReady, RemovePlayer);
         NetworkServer.RegisterHandler(msgServer, ReceiveMsgFromClient);
         Debug.Log("Server Started !");
     }
@@ -37,22 +39,30 @@ public class StrategyServerManager : ANetworkManager {
         Debug.Log("Client Disconnected !");
     }
 
-    private void OnPlayerConnected(NetworkPlayer player) {
-        Debug.Log("Players " + players.Count + " connected from " + player.ipAddress + ":" + player.port);
-        players.Add(player);
+    private void OnClientReady(NetworkMessage netMsg)
+    {
+        Debug.Log("Client Ready !");
+        NetworkServer.SetClientReady(netMsg.conn);
     }
 
-    private void OnPlayerDisconnected(NetworkPlayer player) {
-        Debug.Log("Players " + players.Count + " disconnected from " + player.ipAddress + ":" + player.port);
-        RemovePlayer(player);
-        Network.RemoveRPCs(player);
-        Network.DestroyPlayerObjects(player);
+    private void OnClientNotReady(NetworkMessage netMsg)
+    {
+        Debug.Log("Client Not Ready !");
+        NetworkServer.SetClientNotReady(netMsg.conn);
     }
 
-    public void RemovePlayer(NetworkPlayer find) {
-        for (int i = 0; i < players.Count - 1; i++)
-            if (players[i].Equals(find))
-                players.RemoveAt(i);
+    private void AddPlayer(NetworkMessage netMsg) {
+        Debug.Log("New Player !");
+        GameObject player = new GameObject();//Cree un prefeb Player qui a comme script PlayerController
+        player.AddComponent<NetworkIdentity>();
+        NetworkServer.AddPlayerForConnection(netMsg.conn, player, (short)netMsg.conn.connectionId);
+
+    }
+
+    private void RemovePlayer(NetworkMessage netMsg) {
+        Debug.Log("Remove Player !");
+        NetworkServer.DestroyPlayersForConnection(netMsg.conn);
+        
     }
 
     public void SendMsgToClient(int client, MessageBase msg) {

@@ -5,14 +5,17 @@ using UnityEngine.Networking;
 
 /*
  * Connection Client : MsgType.Connect OK
- * Add New Player : MsgType.AddPlayer
+ * Syncronisation : MsgType.Highest + 5
  * List NetworkHash128 : MsgType.Highest + 0
+ * Client Ready : MsgType.Ready OK
+ * Add New Player : MsgType.AddPlayer OK
  * Ressource : MsgType.Highest + 1
  * Add/Delete Building : MsgType.Highest + 2
  * Add/Delete Unit : MsgType.Highest + 3
  * Move Unit : MsgType.Highest + 4
- * Syncronisation : MsgType.Highest + 5
- * Disconnect Player : MsgType.RemovePlayer
+ * ReSyncronisation : MsgType.Highest + 6
+ * Client NotReady : MsgType.NotReady
+ * Disconnect Player : MsgType.RemovePlayer KO
  * Disconnect Client : MsgType.Disconnect OK
  */
 

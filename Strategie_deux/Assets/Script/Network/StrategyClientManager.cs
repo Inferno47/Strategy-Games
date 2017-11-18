@@ -36,6 +36,10 @@ public class StrategyClientManager : ANetworkManager {
 		client.Disconnect();
 	}
 
+    public NetworkConnection GetConnection() {
+        return client.connection;
+    }
+
 	private void OnConnected(NetworkMessage netMsg) {
 		Debug.Log("Connected Successful !");
 	}

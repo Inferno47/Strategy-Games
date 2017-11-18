@@ -34,12 +34,12 @@ public class SpawnServer : NetworkBehaviour {
     void Update() {
     }
 
-    private void SendIdListToClient() {
+    public void SendIdListToClient(NetworkConnection conn) {
         foreach (NetworkHash128 typeId in typeIdList) {
             MessageIdObject msg = new MessageIdObject();
             msg.TypeId = typeId;
             msg.info = "typeId";
-            serverManager.SendMsgToClient(connectionToClient.connectionId, msg); // chopper la connection client
+            serverManager.SendMsgToClient(conn.connectionId, msg);
             Debug.Log("sent " + typeId.ToString() + " typeId");
         } 
     }

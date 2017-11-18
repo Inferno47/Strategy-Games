@@ -39,20 +39,21 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		playerCtrls = new List<PlayerController>();
+        playerCtrls = new List<PlayerController>();
 		managerScene = (ManagerScene)GameObject.FindObjectOfType(typeof(ManagerScene));
 		LoadNetwork();
-        MessageServer msg = new MessageServer()
+
+        if (Solo == false)
         {
-            Command = "",
-            info = ""
-        };
-        /*if (Solo == false && networkManager.GetType() == System.Type.GetType("StrategyClientManager"))
-            ClientScene.AddPlayer(0);*/
+            LoadSpawner();
+            if (!networkManager.IsServer) {
+                NetworkConnection connection = ((StrategyClientManager)networkManager).GetConnection();
+                Debug.Log("Ready : " + ClientScene.Ready(connection));
+                Debug.Log("Add Player : " + ClientScene.AddPlayer(0));
+            }
+        }
 
         managerScene.LoadScene("PauseMenu", LoadSceneMode.Additive);
-        //SpawnServer server = gameObject.AddComponent<SpawnServer>();
-        //SpawnClient client = gameObject.AddComponent<SpawnClient>();
 	}
 
 	// Update is called once per frame
@@ -66,8 +67,24 @@ public class GameController : MonoBehaviour {
 			Solo = true;
 	}
 
+    private void LoadSpawner() {
+        if (networkManager.IsServer) {
+            SpawnServer server = gameObject.AddComponent<SpawnServer>();
+        }
+        else {
+            SpawnClient client = gameObject.AddComponent<SpawnClient>();
+            GameObject go = new GameObject();
+            go.AddComponent<NetworkIdentity>();
+            ClientScene.RegisterPrefab(go);
+        }
+
+    }
+
 	public void UnloadNetwork() {
-		if (Solo == false)
-			networkManager.Disconnect();
+        if (Solo == false)
+        {
+            Debug.Log("Remove Player : " + ClientScene.RemovePlayer(0));
+            networkManager.Disconnect();
+        }
     }
 }

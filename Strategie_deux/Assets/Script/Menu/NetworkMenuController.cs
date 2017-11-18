@@ -65,6 +65,7 @@ public class NetworkMenuController : MonoBehaviour {
 		Manager.Port = Port;
 		Manager.Connect();
         managerScene.NetworkManager = Manager;
+        Manager.IsServer = isServer;
         if (!isServer)
             yield return new WaitForConnected((StrategyClientManager)Manager);
         managerScene.LoadScene("StrategyGame", LoadSceneMode.Additive);
