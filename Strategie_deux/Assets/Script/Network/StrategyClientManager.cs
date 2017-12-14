@@ -13,6 +13,8 @@ public class StrategyClientManager : ANetworkManager {
 		client.RegisterHandler(MsgType.Connect, OnConnected);
 		client.RegisterHandler(MsgType.Disconnect, OnDisconnected);
         client.RegisterHandler(msgServer, ReceiveMsgFromServer);
+
+        
     }
 
 	// Update is called once per frame
@@ -46,14 +48,6 @@ public class StrategyClientManager : ANetworkManager {
 
 	private void OnDisconnected(NetworkMessage netMsg) {
 		Debug.Log("Disconnected Successful !");
-	}
-
-    public void OnConnectedToServer() {
-		Debug.Log("Connected to server");
-	}
-
-	public void OnDisconnectedFromServer(NetworkDisconnection info) {
-		Debug.Log("Disconnected from server: " + info);
 	}
 
 	public string GetPing() {

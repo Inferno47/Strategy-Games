@@ -4,7 +4,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class StrategyServerManager : ANetworkManager {
+public class StrategyServerManager : ANetworkManager
+{
+    private GameObject player;
 
     // Use this for initialization
     void Awake () {
@@ -20,9 +22,11 @@ public class StrategyServerManager : ANetworkManager {
         NetworkServer.RegisterHandler(MsgType.Disconnect, OnClientDisconnected);
         NetworkServer.RegisterHandler(MsgType.AddPlayer, AddPlayer);
         NetworkServer.RegisterHandler(MsgType.RemovePlayer, RemovePlayer);
-        NetworkServer.RegisterHandler(MsgType.Ready, RemovePlayer);
-        NetworkServer.RegisterHandler(MsgType.NotReady, RemovePlayer);
+        NetworkServer.RegisterHandler(MsgType.Ready, OnClientReady);
+        NetworkServer.RegisterHandler(MsgType.NotReady, OnClientNotReady);
         NetworkServer.RegisterHandler(msgServer, ReceiveMsgFromClient);
+
+        player = Resources.Load("PlayerControlleur") as GameObject;
         Debug.Log("Server Started !");
     }
 
@@ -39,30 +43,24 @@ public class StrategyServerManager : ANetworkManager {
         Debug.Log("Client Disconnected !");
     }
 
-    private void OnClientReady(NetworkMessage netMsg)
-    {
+    private void OnClientReady(NetworkMessage netMsg) {
         Debug.Log("Client Ready !");
         NetworkServer.SetClientReady(netMsg.conn);
     }
 
-    private void OnClientNotReady(NetworkMessage netMsg)
-    {
+    private void OnClientNotReady(NetworkMessage netMsg) {
         Debug.Log("Client Not Ready !");
         NetworkServer.SetClientNotReady(netMsg.conn);
     }
 
     private void AddPlayer(NetworkMessage netMsg) {
         Debug.Log("New Player !");
-        GameObject player = new GameObject();//Cree un prefeb Player qui a comme script PlayerController
-        player.AddComponent<NetworkIdentity>();
-        NetworkServer.AddPlayerForConnection(netMsg.conn, player, (short)netMsg.conn.connectionId);
-
+        NetworkServer.AddPlayerForConnection(netMsg.conn, player, 1);
     }
 
     private void RemovePlayer(NetworkMessage netMsg) {
         Debug.Log("Remove Player !");
         NetworkServer.DestroyPlayersForConnection(netMsg.conn);
-        
     }
 
     public void SendMsgToClient(int client, MessageBase msg) {

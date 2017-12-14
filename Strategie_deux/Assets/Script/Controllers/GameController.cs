@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -49,7 +50,7 @@ public class GameController : MonoBehaviour {
             if (!networkManager.IsServer) {
                 NetworkConnection connection = ((StrategyClientManager)networkManager).GetConnection();
                 Debug.Log("Ready : " + ClientScene.Ready(connection));
-                Debug.Log("Add Player : " + ClientScene.AddPlayer(0));
+                Debug.Log("Add Player : " + ClientScene.AddPlayer(connection, 1));
             }
         }
 
@@ -73,9 +74,9 @@ public class GameController : MonoBehaviour {
         }
         else {
             SpawnClient client = gameObject.AddComponent<SpawnClient>();
-            GameObject go = new GameObject();
-            go.AddComponent<NetworkIdentity>();
-            ClientScene.RegisterPrefab(go);
+
+            GameObject player = Resources.Load("PlayerControlleur") as GameObject;
+            ClientScene.RegisterPrefab(player);
         }
 
     }
@@ -83,7 +84,7 @@ public class GameController : MonoBehaviour {
 	public void UnloadNetwork() {
         if (Solo == false)
         {
-            Debug.Log("Remove Player : " + ClientScene.RemovePlayer(0));
+            Debug.Log("Remove Player : " + ClientScene.RemovePlayer(1));
             networkManager.Disconnect();
         }
     }
