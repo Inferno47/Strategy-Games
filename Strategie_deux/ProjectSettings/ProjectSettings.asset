@@ -515,11 +515,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Strategie_deux
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 8042aabe0a94d401
   metroApplicationDescription: Strategie_deux
   wsaImages: {}
   metroTileShortName: 

@@ -65,7 +65,7 @@ public class GameSettings
 		XmlSerializer serializer = new XmlSerializer(typeof(GameSettings));
 		FileStream stream = new FileStream(file, FileMode.Create);
 		serializer.Serialize(stream, this);
-		stream.Close();
+		stream.Dispose();
 	}
 
 	/// <summary>
@@ -86,7 +86,7 @@ public class GameSettings
 		XmlSerializer serializer = new XmlSerializer(typeof(GameSettings));
 		FileStream stream = new FileStream(file, FileMode.Open);
 		GameSettings settings = serializer.Deserialize(stream) as GameSettings;
-		stream.Close();
+		stream.Dispose();
 		return settings;
 	}
 
