@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class HeadQuarterController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    private ArmyController Army;
+    private BaseController Base;
+    private RessourcesController Ressources;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -13,4 +17,8 @@ public class HeadQuarterController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public bool CheckOrder(Order Action) {
+        return false;
+    }
 }

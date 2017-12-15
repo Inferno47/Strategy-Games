@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Building : MonoBehaviour {
 
+    private bool Power;
+    private int Bouclier;
+    private List<Order> Action;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +17,12 @@ public class Building : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public bool CheckOrder(Order Action) {
+        return false;
+    }
+
+    public void TakeDamage(Troop unit) {
+        
+    }
 }

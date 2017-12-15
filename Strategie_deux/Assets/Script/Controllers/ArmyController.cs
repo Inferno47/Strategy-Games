@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ArmyController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    private List<Troop> Troops;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -13,4 +15,8 @@ public class ArmyController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public bool CheckOrder(Order Action) {
+        return false;
+    }
 }

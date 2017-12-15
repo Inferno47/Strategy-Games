@@ -4,11 +4,11 @@
 
 -ManagerMessage v0:
 
--Menu v0.8:
+-Menu v0.8.5:
 	- Main : OK
 	- Multi : OK
 	- Pause : OK
-	- Game : NOK
+	- Game : En cours
 	- MenuOption :
 		- Recupere les valeurs dans le script c#: 11/11
 		- Interface avec Game Settings pour les valeur: 11/11
@@ -31,8 +31,11 @@
 	
 -Configurer l'instanciation de StrategyGame: OK
 
-Spawners v0:
+Spawners v0.5:
 
 Post-Processing v0:
 
 GameController v0:
+
+Game V0.5:
+	- Base des Class

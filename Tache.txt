@@ -1,0 +1,17 @@
+Prof:
+  - Generation map Aleatoire :
+    - Soleil Aleatoire, Coordonee 0,0,0
+    - N Planet a N Distance qui tourne autour du soleil
+    - Anneaux d'asteroide a N distance du soleil
+    - Station a Coordonee N,N,N
+    - Champ d'asteroide autour du Station
+
+Olivier:
+  - Gestion des inputs Main et Centre du regard
+  - Surchage de EventManager
+
+Aymeric:
+  - Gestion Building
+  - Gestion Army
+  - Gestion Resources
+  - Gestion Order
