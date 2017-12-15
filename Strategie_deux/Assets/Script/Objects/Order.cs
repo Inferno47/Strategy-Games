@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Order : MonoBehaviour
-{
+public class Order : MonoBehaviour {
 
     private int TypeUnit;
     private NetworkHash128 TypeID;
@@ -22,6 +21,4 @@ public class Order : MonoBehaviour
 	void Update () {
 		
 	}
-
-
 }

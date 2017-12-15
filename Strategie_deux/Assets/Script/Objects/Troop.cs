@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Toop : MonoBehaviour {
+public class Troop : MonoBehaviour {
     private int Puissance;
     private int Bouclier;
     private int PV;
