@@ -7,8 +7,9 @@ Prof:
     - Champ d'asteroide autour du Station
 
 Olivier:
-  - Gestion des inputs Main et Centre du regard
-  - Surchage de EventManager
+  - Gestion de la Camera Hololens
+  - Gestion du EvenHandler
+  - Gestion du TrackingHands
 
 Aymeric:
   - Gestion Building
