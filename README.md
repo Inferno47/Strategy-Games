@@ -9,13 +9,11 @@ Strategy games in Augmented Reality.
 * Windows : nothing
 * Linux, Mac : Mono
 
-### Installing
+### Installing & Deployment
 
-No installation method is currently available
+Use the VirtualDeck app
 
 ## Running the tests
-
-## Deployment
 
 ## Built With
 
